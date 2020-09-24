@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{multirow}
 \usepackage{booktabs}
+\usepackage{tablefootnote}
 \usepackage[english]{babel}
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Snippet}
@@ -395,7 +396,7 @@ As established in \S 2.4, Fluxion has operators of many types, moreover, semanti
 
 Immutability of the Fluxion types mean that, when an operator act upon two expressions of any type, the result evaluates to another expression. This may be a algebraic value, an unbound variable, a smaller operation or the same operation.\\
 
-Operations are the most top level expression, whose grammar is defined within \S 2.5 as \synt{expression}. Operations generally consist of one or more expressions bound by an operator. These operators can be categorised in different ways: By their \textit{domain}, the type of variables they act on; by their \textit{arity}, the number of variables they take and by their \textit{position} with respect to the variables they take.\\
+Operations are the most top level expression, whose grammar is defined within \S 2.5 as \synt{expression}. Operations generally consist of one or more expressions (called operands) bound by an operator. These operators can be categorised in different ways: By their \textit{domain}, the type of variables they act on; by their \textit{arity}, the number of variables they take and by their \textit{position} with respect to the variables they take.\\
 
 \begin{table}[]
 \caption{A classification of operators in Fluxion}
@@ -403,7 +404,7 @@ Operations are the most top level expression, whose grammar is defined within \S
 \begin{tabular}{@{}llll@{}}
 \toprule
 Domain                     & Arity                                      & Position & Operators \\ \midrule
-\multirow{4}{*}{Algebraic} & Binary                                     & Infix    &  \code{+}, \code{-}, \code{/}, \code{*}, \code{\^{\null}}, \code{\&}, \code{in}, \code{->}         \\ \cmidrule(l){2-4} 
+\multirow{4}{*}{Algebraic} & Binary                                     & Infix    &  \code{+}, \code{-}, \code{/}, \code{*}, \code{\^{\null}}, \code{\&}, \code{in}, \code{->}, \code{\_}         \\ \cmidrule(l){2-4} 
                            & \multicolumn{1}{c}{\multirow{3}{*}{Unary}} & Prefix   &  \code{+}, \code{-}, \code{\textbackslash}      \\
                            & \multicolumn{1}{c}{}                       & Postfix  &  \code{!}, \code{'}         \\
                            & \multicolumn{1}{c}{}                       & Midfix   &  \code{||}         \\ \midrule
@@ -413,13 +414,49 @@ Scope & Binary & Infix & \code{::}, \code{:=}
 \end{tabular}
 \end{table}
 
-As can be seen in Table \ref{tab:operators}, all Fluxion operators either take one argument, and hence they are \textit{unary} or they take two arguments, and hence they are \textit{binary}. They either act upon algebraic and boolean types, although, same symbol maybe used for different meanings, and hence may take occupy more than one category. \\
+As can be seen in Table \ref{tab:operators}, all Fluxion operators either take one operand, and hence they are \textit{unary} or they take two operands, and hence they are \textit{binary}. They either act upon algebraic and boolean types, although, same symbol maybe used for different meanings, and hence may take occupy more than one category. \\
 
 All binary operators in Fluxion are also infix operators, which means they are placed in between the expressions they act upon, for instance, the algebraic sum operator \code{+} is placed between two expressions, as in \code{a + b}. Prefix unary operators are placed before the expression they act upon, for instance, boolean not operator \code{\textbackslash}, is used as \code{\textbackslash True}. On the other hand, postfix unary operators are placed following the expression they act upon, such as \code{a!}. \\
 
 The midfix operator is the cardinality operator that is generally used for size and length related calculations. It is used such as \code{|a|}. The scope operators are operators that somehow modify the variable scope and are outside the scope of this chapter. (\S 5, \S 10) \\
 
-Operations (but not operators) can also be classified as homogeneous and heterogeneous operations. Homogeneous operations are either binary operations that act on the same types of arguments, or unary operations, whereas the heterogeneous operations are operations that act between two different types of values. For instace, in mathematics, $12!$ and $\vec{a} \times \vec{b}$ is homogeneous, whereas $12\vec{a}$ is heterogeneous.
+Algebraic Operations (but not operators) can also be classified as homogeneous and heterogeneous operations. Homogeneous operations are either binary operations that act on the same types of operands, or unary operations, whereas the heterogeneous operations are operations that act between two different types of values. For instace, in mathematics, $12!$ and $\vec{a} \times \vec{b}$ is homogeneous, whereas $12\vec{a}$ is heterogeneous.
+
+\section{Homogeneous Operations}
+
+\begin{table}[h]
+\label{tab:operatordomains}
+\begin{tabular}{ll}
+\toprule
+Domains & \\
+\midrule
+Numbers & \code{+}, \code{-}, \code{/}, \code{*}, \code{\^}, \code{'}, \code{||} \\
+Integers & \code{!} \\
+Imaginals & \code{\textbackslash} \\
+\midrule
+Sets & \code{+}, \code{-}, \code{in}, \code{\textbackslash}, \code{||}, \code{'}, \code{\&}, \code{*} \\
+\midrule
+Matrices & \code{+}, \code{-}, \code{\&}, \code{||} \\
+Vectors & \code{*} \\
+\bottomrule
+\end{tabular}
+\caption{Domains of homogeneous algebraic operators, an homogeneous operator requires all of its operands to be of this type to work correctly.}
+\end{table}
+
+\subsection{Numerical Operations}
+
+\subsubsection{Common Operations}
+
+Operations of addition (\code{+}) and substraction(\code{-}) work commonly across all numeric types. All numbers can be written of form $a + bi$, and hence, summation of \code{x := a + b*i} and \code{y := c + d*i} evaluate to \code((a + c) + (b + d)*i). Substriction of these terms \code{x - y}, evaluates to \code{(a - c) + (b - d)*i}\\
+
+Operation of multiplication (\code{*}) is trivial mathematical multiplication when both sides are doubles or integers. When one of the sides are an imaginary number, real number part is distributed on both the imaginary and real parts of the number, evaluating into another imaginary number in most cases, such as $x(a + bi) = (ax + bxi)$ mathematically. When both sides are of the imaginary type, the multiplication is expanded mathematically $(a + bi)(c + di) = (ac + (a + b)i - bd) = (ac - bd) + (a + b)i$.\\
+
+Division \code{/} works on a similar manner when both sides are real numerals. When the right hand side of the expression is real. When the left hand side is an imaginary number and the right a real number, distrbutive property is applied similar to multiplication.\\
+
+Exponentiation \code{\^} is the trivial mathematical exponentiation for real numbers. However, for $x, z \in \mathbb{C}$ and $z = a + bi$, expression $x^z$ evaluates to $x^a(\cos(b\ln|x|) + i\sin{(b\ln(x))})$. However, since the logarithms are the inverse of the exponential function, their values are only unique to a value of $2k\pi$ and as such $e^{\ln{|a|} - 2k\pi}(e^{2k\pi}\cos(b\ln|x|) + e^{2k\pi}i\sin{(b\ln(x))})$  \cite{stack}, where any value of $K \in \mathbb{Z}$ is a valid answer to this question. As such, the Fluxion evaluates an exponantiation operation where the exponent is an imaginary number to a sequence of answers, ordered the same way as $\mathbb{Z}$ (\code{dZ}).
+
+
+
 
 
 

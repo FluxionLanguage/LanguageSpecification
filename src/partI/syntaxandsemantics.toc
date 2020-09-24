@@ -37,3 +37,6 @@
 \contentsline {subsubsection}{Number Sets}{19}%
 \contentsline {chapter}{\numberline {4}Operations}{21}%
 \contentsline {section}{\numberline {4.1}Operator Semantics}{22}%
+\contentsline {section}{\numberline {4.2}Homogeneous Operations}{23}%
+\contentsline {subsection}{\numberline {4.2.1}Numerical Operations}{23}%
+\contentsline {subsubsection}{Common Operations}{23}%
