@@ -119,9 +119,9 @@ Literals are the rough equivalents of rvalues in the C programming language. The
 <number> := <decimal> | <integer> | <imaginary>
 \end{grammar}
 
-\subsection{Sets and Sequences}
+\subsection{Sets and Enumerables}
 
-Sets and Sequences share the same grammar they differ on semantics. Therefore, both will share the \synt{set} production rule.
+Sets and Enumerables share the same grammar they differ on semantics. Therefore, both will share the \synt{set} production rule.
 
 \begin{grammar}
 <finite> := `\{', <expression>*, `\}'
@@ -129,6 +129,14 @@ Sets and Sequences share the same grammar they differ on semantics. Therefore, b
 <builder> := `\{', <identifier>, '|', <logical\_condition>, `\}'
 
 <set> := <finite> | <builder>
+\end{grammar}
+
+\subsection{Sequences}
+
+Sequences are either built when \synt{finite} meets a condition or with their own notation.
+
+\begin{grammar}
+<sequence> := <finite> | ([<finite>], <identifier> `->' <expression>)
 \end{grammar}
 
 \subsection{Matrices and Vectors}
@@ -145,7 +153,7 @@ Vectors are subset of Matrices, so much so that, there is no special production 
 \subsection{General Literal Grammar}
 
 \begin{grammar}
-<literal> := <boolean> | <number> | <set> | <matrix> 
+<literal> := <boolean> | <number> | <set> | <matrix> | <sequence>
 \end{grammar}
 
 \section{Operators}
@@ -249,7 +257,7 @@ Fluxion is a dynamically typed language. Where the type of a variable is inferre
 
 All Fluxion types are immutable. As such, variables and literals when passed to functions, only pass by reference and never by value.\\
 
-Fluxion has four main types. \code{boolean}, \code{number}, \code{set}, \code{matrix}. Of these four types, \code{number} is split into \code{integer}, \code{decimal} and \code{imaginary}; a subset of \code{set} types are \code{sequence} types and a subset of \code{matrix} types are \code{vector}s.  \code{number} and \code{matrix} types can interract directly within an expression depending on the circumstances (which will shortly be described). Members of \code{sequence}s can also be called upon to interract with \code{number} and \code{matrix} types, however, \code{boolean} types cannot interract with other types directly. Therefore, \code{number}, \code{set} and \code{matrix} types are called \textit{algebraic} types.
+Fluxion has five main types. \code{boolean}, \code{number}, \code{set}, \code{matrix} and \code{sequence}. Of these five types, \code{number} is split into \code{integer}, \code{decimal} and \code{imaginary}; a subset of \code{set} types are \code{Enumerable} types and a subset of \code{matrix} types are \code{vector}s.  \code{number} and \code{matrix} types can interract directly within an expression depending on the circumstances (which will shortly be described). Members of \code{sequence}s and \code{enumerable}s can also be called upon to interract with \code{number} and \code{matrix} types, however, \code{boolean} types cannot interract with other types directly. Therefore, \code{number}, \code{set} and \code{matrix} types are called \textit{algebraic} types.
 
 \subsection{Unbound Variable}
 
@@ -272,9 +280,10 @@ Each Fluxion literal type can be produced by using an associated production rule
 \code{decimal} & \synt{decimal} & \S 2.3.2 \\
 \code{imaginary} & \synt{imaginary} & \S 2.3.2 \\
 \code{set} & \synt{set} & \S 2.3.3 \\
-\code{sequence} & \synt{set} & \S 2.3.3 \\
-\code{matrix} & \synt{matrix} & \S 2.3.4 \\
-\code{vector} & \synt{vector} & \S 2.3.4 \\
+\code{enumerable} & \synt{set} & \S 2.3.3 \\
+\code{sequence} & \synt{sequence} & \S 2.3.4 \\
+\code{matrix} & \synt{matrix} & \S 2.3.5 \\
+\code{vector} & \synt{vector} & \S 2.3.5 \\
 \hline
 \end{tabular}
 \end{table}%
@@ -343,7 +352,7 @@ Vectors are Matrices of dimension $m \times n$ where at least one of $m$ or $n$ 
 
 \section{Sets}
 
-Sets are container types that may be infinite or finite. They can be either defined using set builder notation, or by putting elements inside curly brackets. Sets are unorderdered, therefore, one cannot get elements outside a list. But one can check if an element is inside a list.
+Sets are container types that may be infinite or finite. They can be either defined using set builder notation, or by putting elements inside curly brackets. Sets are unorderdered, therefore, one cannot get elements outside a list. But one can check if an element is inside a list, sets also cannot contain two elements that are equal.
 
 \begin{lstlisting}[caption={Example vectors},captionpos=b]
 {1, 2, 3} ; A finite set.
@@ -351,21 +360,21 @@ Sets are container types that may be infinite or finite. They can be either defi
 {x | x in dN} ; A set with set builder notation.
 \end{lstlisting}
 
-\subsection{Sequences}
+\subsection{Enumerables}
 
-Sequences are special lists, they are either lists that are finite or countably infinite. A set is said to be countably infinite if its members can be mapped one to one with the set of natural numbers. More formally, Sequences are sets that are enumaratable, for this reason, sequences are ordered.
+Enumerables are special lists, they are either lists that are finite or countably infinite. A set is said to be countably infinite if its members can be mapped one to one with the set of natural numbers. More formally, Enumerables are sets that are enumaratable, for this reason, Enumerables are ordered.
 
-\subsection{Predefined Sets and Sequences}
+\subsection{Predefined Sets and Enumerables}
 
-Fluxion programming language comes built-in with certain sets and sequences. First of these is the \code{units} sequence, which contain first three base vectors in order, $\vec{i}$, $\vec{j}$ and $\vec{k}$.
+Fluxion programming language comes built-in with certain sets and Enumerables. First of these is the \code{units} enumerable, which contain first three base vectors in order, $\vec{i}$, $\vec{j}$ and $\vec{k}$.
 
 \subsubsection{Number Sets}
 
-More usefully, Fluxion comes predefined with sets that represent number sets in math, these are called \textit{domains} (domain of natural numbers, etc.). Some of these, ones that can be mapped to natural numbers via bijection are also sequences.
+More usefully, Fluxion comes predefined with sets that represent number sets in math, these are called \textit{domains} (domain of natural numbers, etc.). Some of these, ones that can be mapped to natural numbers via bijection are also Enumerables.
 
 \begin{table}[ht]
 \centering
-\caption{Domains, their Fluxion equivalents and their enumeration method as sequences, if it exists.}
+\caption{Domains, their Fluxion equivalents and their enumeration method as Enumerables, if it exists.}
 \begin{tabular}[t]{lll}
 \hline
 & Variable & Enumaration\\
@@ -382,6 +391,19 @@ $\mathbb{C}$ & \code{dC} & -- \\
 \hline
 \end{tabular}
 \end{table}%
+
+\section{Sequences}
+
+Sequences are container types that are enumarated. They can contain the same element more than once. They either come into existence when the curly bracket syntax is used with a repeating element or with their own special notation.
+
+\begin{lstlisting}
+a_sequence := {1, 2, 2}
+an_enumarable := {1, 2, 3}
+;; Underneath is the fibonacci!
+another_sequence := {1, 1} x_n -> x_(n - 1) + x_(n - 2)
+\end{lstlisting}
+
+In this notation, the first finite sequence gives the first elements, then the next part is the production rule by which the next elements are created.
 
 \chapter{Operations}
 \vspace{1em}
@@ -420,11 +442,34 @@ All binary operators in Fluxion are also infix operators, which means they are p
 
 The midfix operator is the cardinality operator that is generally used for size and length related calculations. It is used such as \code{|a|}. The scope operators are operators that somehow modify the variable scope and are outside the scope of this chapter. (\S 5, \S 10) \\
 
-Algebraic Operations (but not operators) can also be classified as homogeneous and heterogeneous operations. Homogeneous operations are either binary operations that act on the same types of operands, or unary operations, whereas the heterogeneous operations are operations that act between two different types of values. For instace, in mathematics, $12!$ and $\vec{a} \times \vec{b}$ is homogeneous, whereas $12\vec{a}$ is heterogeneous.
+Algebraic Operations (but not operators) can also be classified as homogeneous and heterogeneous operations. Homogeneous operations are either binary operations that act on the same types of operands, or unary operations, whereas the heterogeneous operations are operations that act between two different types of values. For instace, in mathematics, $12!$ and $\vec{a} \times \vec{b}$ is homogeneous, whereas $12\vec{a}$ is heterogeneous. \\
+
+\section{Error Literals}
+
+Error literals are literals that are created as a result of an mathematical error. When an error literal is evaluated, the language implementation must inform the user where it happened and if possible offer reasons begind it.
+
+\begin{description}
+\item[\code{Overflow}] An expression whose absolute value is bigger or equal to $2^{64}$.
+\item[\code{Undefined}] Using an operator with types that does not support it. Dividing by zero.
+\item[\code{Indeterminate}] Dividing zero by zero. May also arise from certain differentiations: \S 7.
+\end{description}
+
+\begin{lstlisting}[caption={Error Literal Examples}, captionpos=b]
+> a := True + False
+Undefined: + operator undefined between two boolean literals.
+> 0/0
+Indeterminate: 0/0 is an indeterminate form.
+> 21!
+Overflow
+\end{lstlisting}
+
+\section{Code Precedence}
+
+Operations on numbers have precedence over operations on matrices, which has precedence over operations on sets, which has precedence on boolean operations. Operations within types are ordered within themselves.
 
 \section{Homogeneous Operations}
 
-\begin{table}[h]
+\begin{table}[htbb]
 \label{tab:operatordomains}
 \begin{tabular}{ll}
 \toprule
@@ -436,8 +481,10 @@ Imaginals & \code{\textbackslash} \\
 \midrule
 Sets & \code{+}, \code{-}, \code{in}, \code{\textbackslash}, \code{||}, \code{'}, \code{\&}, \code{*} \\
 \midrule
-Matrices & \code{+}, \code{-}, \code{\&}, \code{||} \\
+Matrices & \code{+}, \code{-}, \code{\&}, \code{||}, \code{\textbackslash} \\
 Vectors & \code{*} \\
+\midrule
+Sequences & \code{+}, \code{||} \\
 \bottomrule
 \end{tabular}
 \caption{Domains of homogeneous algebraic operators, an homogeneous operator requires all of its operands to be of this type to work correctly.}
@@ -445,19 +492,85 @@ Vectors & \code{*} \\
 
 \subsection{Numerical Operations}
 
+On numbers, precedence of operations is as follows:
+
+\begin{enumerate}
+\item Complex conjugate
+\item Factorial
+\item Differentiation
+\item Exponantiation
+\item Multiplication and Divison
+\item Addition and Substraction
+\end{enumerate}
+
 \subsubsection{Common Operations}
 
 Operations of addition (\code{+}) and substraction(\code{-}) work commonly across all numeric types. All numbers can be written of form $a + bi$, and hence, summation of \code{x := a + b*i} and \code{y := c + d*i} evaluate to \code((a + c) + (b + d)*i). Substriction of these terms \code{x - y}, evaluates to \code{(a - c) + (b - d)*i}\\
 
-Operation of multiplication (\code{*}) is trivial mathematical multiplication when both sides are doubles or integers. When one of the sides are an imaginary number, real number part is distributed on both the imaginary and real parts of the number, evaluating into another imaginary number in most cases, such as $x(a + bi) = (ax + bxi)$ mathematically. When both sides are of the imaginary type, the multiplication is expanded mathematically $(a + bi)(c + di) = (ac + (a + b)i - bd) = (ac - bd) + (a + b)i$.\\
+Operation of multiplication (\code{*}) is trivial mathematical multiplication when both sides are decimals or integers. When one of the sides are an imaginary number, real number part is distributed on both the imaginary and real parts of the number, evaluating into another imaginary number in most cases, such as $x(a + bi) = (ax + bxi)$ mathematically. When both sides are of the imaginary type, the multiplication is expanded mathematically $(a + bi)(c + di) = (ac + (a + b)i - bd) = (ac - bd) + (a + b)i$.\\
 
-Division \code{/} works on a similar manner when both sides are real numerals. When the right hand side of the expression is real. When the left hand side is an imaginary number and the right a real number, distrbutive property is applied similar to multiplication.\\
+Division \code{/} works on a similar manner when both sides are real numerals. When the right hand side of the expression is real. When the left hand side is an imaginary number and the right a real number, distrbutive property is applied similar to multiplication. When the left hand side is \code{1} and right hand side is a complex numeral, the expression evaluates to the complex conjugate of the numeral.\\
 
-Exponentiation \code{\^} is the trivial mathematical exponentiation for real numbers. However, for $x, z \in \mathbb{C}$ and $z = a + bi$, expression $x^z$ evaluates to $x^a(\cos(b\ln|x|) + i\sin{(b\ln(x))})$. However, since the logarithms are the inverse of the exponential function, their values are only unique to a value of $2k\pi$ and as such $e^{\ln{|a|} - 2k\pi}(e^{2k\pi}\cos(b\ln|x|) + e^{2k\pi}i\sin{(b\ln(x))})$  \cite{stack}, where any value of $K \in \mathbb{Z}$ is a valid answer to this question. As such, the Fluxion evaluates an exponantiation operation where the exponent is an imaginary number to a sequence of answers, ordered the same way as $\mathbb{Z}$ (\code{dZ}).
+Exponentiation \code{\^} is the trivial mathematical exponentiation for real numbers with the caveat that if a negative real number $a$ is exponantiated with a $x$ such that $-1 < x < 1$, $a^x$ is evaluated as $(-a)^x\sqrt{-1}$, which evaluates to $(-a)^xi$, or in Fluxion code format \code{(-a)\^{\null}x*i}. \\
 
+However, for $x, z \in \mathbb{C}$ and $z = a + bi$, expression \code{x\^{\null}z} ($x^z$) evaluates to $x^a(\cos(b\ln|x|) + i\sin{(b\ln(x))})$ (\S 10.3.1). Moreover, since the logarithms are the inverse of the exponential function, their values are only unique to a value of $2k\pi$ and as such $e^{\ln{|a|} - 2k\pi}(e^{2k\pi}\cos(b\ln|x|) + e^{2k\pi}i\sin{(b\ln(x))})$  \cite{stack}, where any value of $K \in \mathbb{Z}$ is a valid answer to this question. As such, the Fluxion evaluates an exponantiation operation where the exponent is an imaginary number to a sequence of answers, ordered the same way as $\mathbb{Z}$ (\code{dZ}). \\
 
+Differentiation operator \code{'}, always returns 0. As derivative of constants are 0. \\
 
+Cardinality operator \code{||} acts as the absolute value operator for numbers, although trivial for real numbers, if the operand is an imaginary number of form $z = a + bi$, this \code{|z|} will evaluate to $\sqrt{a^2 + b^2}$. \\
 
+\begin{lstlisting}[caption={Example usages of operations}, captionpos=b]
+> 1 + 2
+3
+> 12 * 3
+36
+> 3i + 12 + 23 + 1i
+35 + 4i
+\end{lstlisting}
+
+\subsubsection{Operations Exclusive to Integers}
+
+The factorial operation, \code{!} is the equivalent to factorial in mathematics, and hence only evaluates with integer values. It is used such as \code{12!}, the highest evaluatable factorial is $20!$. Larger factorials \textit{may} evaluate to \code{Overflow}. \S 6.
+
+\subsubsection{Operations Exclusive to Imaginals}
+
+The complex conjugate operation, \code{\textbackslash}, which is used as \code{\textbackslash (3 + 5i)} evaluates to the complex conjugate of the imaginary numerals. \code{3 - 5i}.
+
+\subsection{Matrix Operations}
+
+\subsubsection{Common Operations}
+
+Matrices and vectors share many operations together. \code{+} and \code{-} act by summing elements in the same cells if the matrices are of the same dimensions, otherwise informs the user. \\
+
+\code{\textbackslash} takes the transpose of a matrix, $M^T$. While \code{||} Takes the norm of a matrix. \code{\&} is the matrix multiplication, otherwise known as cross product, $M \times N$ or $\vec{v} \times \vec{m}$.
+
+\subsubsection{Operations Exclusive to Vectors}
+
+When used between two vectors, \code{*} means the dot product of these vectors, $\vec{x} \cdot \vec{y}$.
+
+\subsection{Set Operations}
+
+Unlike other main types that has subtypes, all sets have a uniform set of operations that act on them. In sets,
+
+\chapter{Mathematical Proofs and Functions}
+
+\section{Exponentiation by Complex Numerals}
+
+Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
+
+\begin{table}[h]
+\begin{tabular}{lll}
+$w^z$ & $= e^{\ln|w^z|}$ & \\
+& $= e^{z\ln|w|}$ & \\
+& $= e^{(a + bi)\ln|w|}$ & \\
+& $= e^{a\ln|w| + bi\ln|w|}$ & \\
+& $= e^{a\ln|w|}e^{bi\ln|w|}$ & (Using $a^xa^y = a^{x+y}$)\\
+& $= \left(e^{\ln|w|}\right)^a e^{bi\ln|w|}$  & (Using $\left(a^{b}\right)^c = a^{bc}$)\\
+& $= |w|^ae^{bi\ln|w|}$ & (Since $e^{ln|a|} = |a|$) \\
+& $= |w|^ae^{b\ln|w|i}$ & Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$\\
+& $= |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right)$ & (Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)
+\end{tabular}
+\end{table}
 
 
 \bibliographystyle{plain}
