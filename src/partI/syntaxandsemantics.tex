@@ -1,0 +1,431 @@
+\newcommand{\code}[1]{\texttt{#1}}
+\documentclass[11pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage[english]{babel}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Snippet}
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}%
+\usepackage[nounderscore]{syntax}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Ege Özkan}
+\title{Fluxion Language Specification 0.1 \\ \large{Part I: Syntax \& Semantics}}
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+\vspace{1em}
+\begin{quotation}
+This chapter includes the design philasophy of and concepts behind the Fluxion Language, and a defence of the Fluxion Language, that is, why it is needed.
+\end{quotation}
+
+\newpage
+\section{A Defence of Fluxion}
+
+First thing one has to understand when it comes to language is its usefulness. As the readers may ask, \textit{why} should Fluxion exist? Don't we already have many scientific programming langauges like Python or Julia?\\
+
+The answer to these questions can be given twofold: First, languages live and breath alongside with their ecosystem, even though their existence might be meaningful without a certain use case, and some even develop use cases they are originally not created for, in many cases, languages with a clear goal are easier to design.\\
+
+Domain Specific Languages, are languages created to answer problems arising from a domain. Fluxion is such a language, its chief primary concern is to create a language, that can adequetly represent mathmatical constructs and expressions from many differing fields, to simplify, solve or to manuplate these constructs for the benefit of the users, who may wish to use Fluxion in their systems for a variety of purposes. These may range from pedogocial concerns, such as to teach pupils about certain mathematical concepts to proving actual mathematical problems.\\
+
+When it comes to languages like Python, Julia or even Matlab, though they are useful, they are far to complex to be simple enough for users to actually engage with the symbolic mathematical underlayings of formulas, theorems and proofs. Fluxion aims to be simpler, much closer to mathematical notation, while still retatining \textit{some} but not all of their power. Fluxion does not aim to be a general purpose programming language. It does not even aim to be \textit{a} programming language. Fluxion is a Symbolic Computation Language, and it aims to excel at that one field.\\
+
+Second, Fluxion does not aim to replace these languages, though some users will benefit it from it, to such a degree that in some use cases, they may prefer Fluxion, Fluxion will be written in such a way that it can be embedded and itnerloop with many of these languages, which will allow users to concantrate on problems and expressions like never before.\\
+
+When designing Fluxion, first aim was to create a language that is easy to understand, extremely close to mathematical notation even if it went against previously established conventions of Computer Science, or if it adhered to conventions lesser known, this allows people litterate in Mathematics to easilly pick up Fluxion.\\
+
+The second aim was to make sure that mistakes were limited. For instance, unlike many other languages, star imports does not exist in Fluxion to avoid namespace cluttering, in the reverse side of the import, module members are by default private, and must be exported explicitly using the \code{export} keyword.\\
+
+Third aim of the Fluxion's \textit{design} is for it to be extendable. Using the \code{introduce} keyword, users and introduce Fluxion new \textit{contexts}, that can be about different domains of science using mathematics. A Physics domain may introduce Physics related constants and functions, a Mechanics domain may introduce functions and constants related to the mechanical engineering. This allows Fluxion to be tailored towards whatever purpose the user wishes it to be.
+
+Fourth and final aim of the Fluxion is to be a free and open source alternative to the already established systems that are not as readilly as accessible or perhaps extendable as the Fluxion language itself.
+
+\subsection{Fluxion is not a Programming Language}
+
+Fluxion is not a programming language. It is a symbolic computation language. However, this specification will refeer to the language as \textit{the Fluxion Language} for keeping things short.
+
+\subsection{the Name Fluxion}
+
+Fluxion was the original name given to the instantenous rate of change of time sensitive function (or a Fluent Quantity, a \textit{Fluent}) by Sir Isaac Newton\cite{fluxionname}. In essance, Fluxion is an obscure term for derivatives\cite{collins}. Given that Fluxion arised from a Clojure program that was made to take derivatives, I felt it is a good name as any to give it.
+
+\section{Contents of the Specification}
+
+Subsequent chapters of this specification will talk about different components of Fluxion. Each chapter will talk about a component, its syntax, semantics and behaviour. Syntaxes of these components will be expressed via the Extended Backus-Naur Form\cite{ISO14977} with very minor augmentations. \\
+
+Next chapter contains the lexical structure of the language via Extended BNF, including the operators of the language, statements, expressions and literals. Third hapter contains these basic literal expressions, as well as the type system of Fluxion. Fourth chapter contains the operations on these literals. Chapter five discusses assignment and function definitions as well as built-in functions of the language. Chapter six discusses reductions, chapter seven discusses differentiation of various algabraic data types and finally, chapter eight discussess the various statements, such as \code{introduce} and \code{in} the language has. \\
+
+This is the first part of a two parter language specification. As such, the standard library facilities will be introduced in the second part of this specification. Implementation of the standard library is necessary for a complete implementation of the Fluxion language, however, a minimal implementation may leave it out.
+
+\chapter{Grammar}
+\vspace{1em}
+\begin{quotation}
+This chapter includes the relevant grammar for statements, expressions and literals of the Fluxion language in Extended Backus-Naur Form.
+\end{quotation}
+\newpage
+
+
+\section{Notation}
+
+The notation included in this specification is ISO14977 Extended Backus-Naur Form, with the addition of the kleen-star \syntax{<a>*}, this symbol is used in place of the \syntax{\{<a>\}}, and represents that a certain lexeme may be repeated zero or more times. 
+
+\section{Common Lexical Units}
+
+Below are some lexemes, either in description, or in extended BNF that will be used as the building blog of more complex lexemes. first of all, let us define some production rules informally:
+
+\begin{description}
+\item[\synt{letter}] As it is used in the ISO14977, an English character within the ASCII, lowercase or uppercase.
+\item[\synt{unicode}] A character that is either a \code{letter} or any unicode string that is not an operator.
+\item[\synt{digit}] As it is defined in the ISO14977, a digit is a base ten numeral between 0 and 9.
+\item[\synt{space}] Space, or more formally the ASCII character number thirty two.
+\item[\synt{tab}] Tab, or more formally ASCII character number nine.
+\item[\synt{EOF}] End of file character. May also be substituted for end of string.
+\item[\synt{EOL}] End of line character.
+\end{description}
+
+
+
+\section{Literals}
+
+Literals are the rough equivalents of rvalues in the C programming language. They are used to define "types".
+
+\subsection{Boolean Literals}
+
+\begin{grammar}
+<boolean> := `True' | `False'
+\end{grammar}
+
+\subsection{Numerical Literals}
+
+\begin{grammar}
+
+<unsigned> := <digit> [, <digit>*]
+
+<integer> := [<sign>], <unsigned>
+
+<decimal> := <integer>, `.', <unsigned>
+
+<imaginary> := <number>, <sign>, <number>, `i'
+
+<number> := <decimal> | <integer> | <imaginary>
+\end{grammar}
+
+\subsection{Sets and Sequences}
+
+Sets and Sequences share the same grammar they differ on semantics. Therefore, both will share the \synt{set} production rule.
+
+\begin{grammar}
+<finite> := `\{', <expression>*, `\}'
+
+<builder> := `\{', <identifier>, '|', <logical\_condition>, `\}'
+
+<set> := <finite> | <builder>
+\end{grammar}
+
+\subsection{Matrices and Vectors}
+
+Vectors are subset of Matrices, so much so that, there is no special production rule for vectors.
+
+\begin{grammar}
+<row> := <expression>, (<whitespace>, <expression>)*
+
+<matrix> := `[', <row>, (`|', <row>)*, `]'
+
+\end{grammar}
+
+\subsection{General Literal Grammar}
+
+\begin{grammar}
+<literal> := <boolean> | <number> | <set> | <matrix> 
+\end{grammar}
+
+\section{Operators}
+
+\subsection{Binary Operators}
+
+\begin{grammar}
+
+<algebraic\_operator> := `+' | `-' | `/' | `*' | `^' | `->' | `_' 
+
+<comperasion\_operator> := `<' | `>' | `<=' | `>=' | `\\=' | `='
+
+<logical\_operator> := `|' | `in' | <comperasion\_operator>
+
+<hybrid\_operator> := `&'
+
+<operator> := <algebraic\_operator> | <logical\_operator> | <hybrid\_operator>
+
+\end{grammar}
+
+\subsection{Unary Operators}
+
+\begin{grammar}
+<sign> := `+' | `-'
+
+<prefix> := <sign> | `\\'
+
+<postfix> := `'' | `!'
+
+<unary\_operator> := <prefix> | <postfix>
+\end{grammar}
+
+
+\synt{hybrid\_operator}s are named as such as they can either be parsed as \synt{logical\_operator}s or as \synt{comperasion\_operator}s depending on the literals they are used with. In cases where ambiguity can arise, their algebraic versions have precedence.
+
+\section{Variables and Expressions}
+
+\begin{grammar}
+<identifier> := [<identifier>, `::']<letter>, <unicode>*
+
+<function> := <identifier>, `(', (<variable> | <literal> | <expression>) , `)'
+
+<variable> := <identifier> | <function>
+
+<cardinality> := `|', <expression>, `|'
+
+<expression> := <cardinality> | [<prefix>], (<literal> | <variable>) [, <operator>, <expression>], [<postfix>]
+
+<logical\_condition> := [`\\'], (<boolean> | <variable>) [, <logical\_operator> <logical\_condition>]
+
+<assignment> := <variable>, `:=', <expression>
+\end{grammar}
+
+Here the \synt{function} production rule covers the function definition, as well as the function calls.
+
+\section{Statements}
+
+\begin{grammar}
+
+<introduce> := "introduce", <identifier>
+
+<solve> := `?', <expression>
+
+<export> := `export', <identifier>, (`,' <identifier>)*
+
+<statement> := <solve> | <introduce> | <export>
+
+\end{grammar}
+
+\section{General Program Grammar}
+
+\begin{grammar}
+<line> := <expression>*, EOL
+
+<multiline\_comment> := `;*', <unicode>*, `*;'
+
+<single\_comment> := `;;', <unicode>*, EOL
+
+<multiline> := <line>, (<tab> | (<space> <space>) <line>)*
+
+<unit> := <multiline> | <statement> | <assignment>
+
+<program> := (<unit> | <comment>)*, EOF
+
+\end{grammar}
+
+Multiline statements can be achived by putting two spaces or a tab character in a line, in such case, programs treat this line as the continuation of the previous line.
+
+\chapter{Fluxion's Type System}
+
+\vspace{1em}
+\begin{quotation}
+This chapter includes the explanation of the Fluxion's type system from a programming language perspective.
+\end{quotation}
+\newpage
+
+
+\section{An Overview of the Fluxion's Type System}
+
+Fluxion is a dynamically typed language. Where the type of a variable is inferred by the language. Semantics of the operators change depending on which types they are acting upon in a given context. \\
+
+All Fluxion types are immutable. As such, variables and literals when passed to functions, only pass by reference and never by value.\\
+
+Fluxion has four main types. \code{boolean}, \code{number}, \code{set}, \code{matrix}. Of these four types, \code{number} is split into \code{integer}, \code{decimal} and \code{imaginary}; a subset of \code{set} types are \code{sequence} types and a subset of \code{matrix} types are \code{vector}s.  \code{number} and \code{matrix} types can interract directly within an expression depending on the circumstances (which will shortly be described). Members of \code{sequence}s can also be called upon to interract with \code{number} and \code{matrix} types, however, \code{boolean} types cannot interract with other types directly. Therefore, \code{number}, \code{set} and \code{matrix} types are called \textit{algebraic} types.
+
+\subsection{Unbound Variable}
+
+Since Fluxion is a Symbolic Computation Language, users may wish to leave variables without definition. In such cases, it is not guranteed what a variable may represent. Such variables are called \textit{Unbound variables}. If the variable \code{x} is undefined, the expression \code{x\^{\null}2 + 2} is still a valid expression.
+
+\subsection{Associated Grammar}
+
+Each Fluxion literal type can be produced by using an associated production rule. Types that adhere to the same production rules are special cases of their more general types.
+
+\begin{table}[ht]
+\centering
+\caption{Grammar rules associated with each type.}
+\begin{tabular}[t]{llc}
+\hline
+& Rule &Relevant Section\\
+\hline
+\code{boolean} & \synt{boolean} & \S 2.3.1 \\
+\code{number} & \synt{number} & \S 2.3.2 \\
+\code{integer} & \synt{integer} & \S 2.3.2 \\
+\code{decimal} & \synt{decimal} & \S 2.3.2 \\
+\code{imaginary} & \synt{imaginary} & \S 2.3.2 \\
+\code{set} & \synt{set} & \S 2.3.3 \\
+\code{sequence} & \synt{set} & \S 2.3.3 \\
+\code{matrix} & \synt{matrix} & \S 2.3.4 \\
+\code{vector} & \synt{vector} & \S 2.3.4 \\
+\hline
+\end{tabular}
+\end{table}%
+
+
+\section{Booleans}
+
+Fluxion has two boolean values, \code{True} and \code{False}. These values may arise from logical operations. Unlike many languages, algebraic values themselves do not carry any significance in terms of boolean values.
+
+\section{Numbers}
+
+Numeric types are types that carry numeric values. They can be decimals, integers or imaginary numbers. A numerical literal written without a sign is presumed to be positive.
+
+\subsection{Integers}
+
+Integers are whole numbers. Fluxion allows an integer value to be between $-(2^{64} - 1)$ and $2^{64} - 1$. Trying to assign a variable to an integer literal above this number, or attempting to operate on this number will result in an exception.
+
+\begin{lstlisting}[caption={Example integers},captionpos=b]
+32
+-23
+0
+\end{lstlisting}
+
+\subsection{Decimal}
+
+Decimals are numbers with a decimal point. They must be stored as fractions of integers within the language, thus allowing for high precision and easier reduction of expressions.
+
+\begin{lstlisting}[caption={Example decimals},captionpos=b]
+3.12
++4.234
+-3.12
+\end{lstlisting}
+
+\subsection{Imaginary numbers}
+
+Imaginary numbers are created by summing a number with another number multiplied with $i = \sqrt{-1}$ This also makes \code{i} a reserved keyword. If \code{a := b + c*i}, \code{b} is called the real part and \code{c} is called the imaginary part. Both \code{a} and \code{b} can take any value their type allows. (if \code{a} is an \code{integer}, it can be between negative and positive $2^{64} - 1$)
+
+\begin{lstlisting}[caption={Example imaginals},captionpos=b]
+3 + 2i
+a + b*i
+-3 - 1i
+\end{lstlisting}
+
+\subsection{Irrational Numbers}
+
+Irrational numbers are undefinable by normal user programs in Fluxion. However, special Irrational numbers that are often used in math, namely $\pi, \tau$ and $e$ are predefined in the language as \code{pi}, \code{tau} and \code{euler}. Functions that act on these values are hardcoded to resolve them in mathematically correct ways.
+
+For instance, \code{sin(pi)} resolves to \code{0} and \code{ln(euler)} resolves to \code{1}. In expressions where such resolutions are impossible these variables are retained as variables. For more information, please refeer to \S 6.1.2.
+
+\section{Matrices}
+
+A matrix consists of rows and columns. A matrix of $n$ rows and $m$ columns is told to be a matrix of size $m \times n$. In Fluxion, matrices may be as big as the memory allows. Moreover, matrices may hold values of arbitary types, including other matrices.
+
+\begin{lstlisting}[caption={An example matrix},captionpos=b]
+[1 2 3 | a b c | (12 + a) | (13 + c) | 3]
+\end{lstlisting}
+
+\subsection{Vectors}
+
+Vectors are Matrices of dimension $m \times n$ where at least one of $m$ or $n$ equals one. Vectors can be horizontal or vertical.
+
+\begin{lstlisting}[caption={Example vectors},captionpos=b]
+[1 2 3]
+[1 | 2 | 3]
+\end{lstlisting}
+
+\section{Sets}
+
+Sets are container types that may be infinite or finite. They can be either defined using set builder notation, or by putting elements inside curly brackets. Sets are unorderdered, therefore, one cannot get elements outside a list. But one can check if an element is inside a list.
+
+\begin{lstlisting}[caption={Example vectors},captionpos=b]
+{1, 2, 3} ; A finite set.
+{} ; An empty set.
+{x | x in dN} ; A set with set builder notation.
+\end{lstlisting}
+
+\subsection{Sequences}
+
+Sequences are special lists, they are either lists that are finite or countably infinite. A set is said to be countably infinite if its members can be mapped one to one with the set of natural numbers. More formally, Sequences are sets that are enumaratable, for this reason, sequences are ordered.
+
+\subsection{Predefined Sets and Sequences}
+
+Fluxion programming language comes built-in with certain sets and sequences. First of these is the \code{units} sequence, which contain first three base vectors in order, $\vec{i}$, $\vec{j}$ and $\vec{k}$.
+
+\subsubsection{Number Sets}
+
+More usefully, Fluxion comes predefined with sets that represent number sets in math, these are called \textit{domains} (domain of natural numbers, etc.). Some of these, ones that can be mapped to natural numbers via bijection are also sequences.
+
+\begin{table}[ht]
+\centering
+\caption{Domains, their Fluxion equivalents and their enumeration method as sequences, if it exists.}
+\begin{tabular}[t]{lll}
+\hline
+& Variable & Enumaration\\
+\hline
+$\mathbb{N}$ & \code{dN} & $n \rightarrow n$\\
+$\mathbb{Z}$ & \code{dZ} & $\{0, -1, 1, -2, \hdots\}$ \\
+$\mathbb{Z^+}$ & \code{dZp} & $\{1, 2, 3, 4, 5, \hdots\}$ \\
+$\mathbb{Z^-}$ & \code{dZn} & $\{-1, -2, -3, \hdots\}$ \\
+$\mathbb{Q}$ & \code{dQ} & \S 10.3.1 \\
+$\mathbb{Q^-}$ & \code{dQn} & \S 10.3.2 \\
+$\mathbb{Q^+}$ & \code{dQp} & \S 10.3.3 \\
+$\mathbb{R}$ & \code{dR} & -- \\
+$\mathbb{C}$ & \code{dC} & -- \\
+\hline
+\end{tabular}
+\end{table}%
+
+\chapter{Operations}
+\vspace{1em}
+\begin{quotation}
+This chapter includes how operators act upon different variable types and the results of these operations.
+\end{quotation}
+\newpage
+
+\section{Operator Semantics}
+
+As established in \S 2.4, Fluxion has operators of many types, moreover, semantics of operators may change depending on the type of the value they are acting upon, akin to operator overloading.\\
+
+Immutability of the Fluxion types mean that, when an operator act upon two expressions of any type, the result evaluates to another expression. This may be a algebraic value, an unbound variable, a smaller operation or the same operation.\\
+
+Operations are the most top level expression, whose grammar is defined within \S 2.5 as \synt{expression}. Operations generally consist of one or more expressions bound by an operator. These operators can be categorised in different ways: By their \textit{domain}, the type of variables they act on; by their \textit{arity}, the number of variables they take and by their \textit{position} with respect to the variables they take.\\
+
+\begin{table}[]
+\caption{A classification of operators in Fluxion}
+\label{tab:operators}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Domain                     & Arity                                      & Position & Operators \\ \midrule
+\multirow{4}{*}{Algebraic} & Binary                                     & Infix    &  \code{+}, \code{-}, \code{/}, \code{*}, \code{\^{\null}}, \code{\&}, \code{in}, \code{->}         \\ \cmidrule(l){2-4} 
+                           & \multicolumn{1}{c}{\multirow{3}{*}{Unary}} & Prefix   &  \code{+}, \code{-}, \code{\textbackslash}      \\
+                           & \multicolumn{1}{c}{}                       & Postfix  &  \code{!}, \code{'}         \\
+                           & \multicolumn{1}{c}{}                       & Midfix   &  \code{||}         \\ \midrule
+\multirow{2}{*}{Boolean}   & Binary                                     & Infix    &  \code{<}, \code{>}, \code{<=}, \code{>=}, \code{=}, \code{\textbackslash =}, \code{\&}, \code{|}         \\ \cmidrule(l){2-4} 
+                           & Unary                                      & Prefix   & \code{\textbackslash}          \\ \midrule
+Scope & Binary & Infix & \code{::}, \code{:=}
+\end{tabular}
+\end{table}
+
+As can be seen in Table \ref{tab:operators}, all Fluxion operators either take one argument, and hence they are \textit{unary} or they take two arguments, and hence they are \textit{binary}. They either act upon algebraic and boolean types, although, same symbol maybe used for different meanings, and hence may take occupy more than one category. \\
+
+All binary operators in Fluxion are also infix operators, which means they are placed in between the expressions they act upon, for instance, the algebraic sum operator \code{+} is placed between two expressions, as in \code{a + b}. Prefix unary operators are placed before the expression they act upon, for instance, boolean not operator \code{\textbackslash}, is used as \code{\textbackslash True}. On the other hand, postfix unary operators are placed following the expression they act upon, such as \code{a!}. \\
+
+The midfix operator is the cardinality operator that is generally used for size and length related calculations. It is used such as \code{|a|}. The scope operators are operators that somehow modify the variable scope and are outside the scope of this chapter. (\S 5, \S 10) \\
+
+Operations (but not operators) can also be classified as homogeneous and heterogeneous operations. Homogeneous operations are either binary operations that act on the same types of arguments, or unary operations, whereas the heterogeneous operations are operations that act between two different types of values. For instace, in mathematics, $12!$ and $\vec{a} \times \vec{b}$ is homogeneous, whereas $12\vec{a}$ is heterogeneous.
+
+
+
+\bibliographystyle{plain}
+\bibliography{fluxion.bib}
+
+
+\end{document}
+
