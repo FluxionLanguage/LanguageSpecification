@@ -1,11 +1,12 @@
 \newcommand{\code}[1]{\texttt{#1}}
+
 \documentclass[11pt,a4paper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{multirow}
 \usepackage{booktabs}
-\usepackage{tablefootnote}
 \usepackage[english]{babel}
 \usepackage{listings}
+\usepackage{rotating}
 \renewcommand{\lstlistingname}{Snippet}
 \renewcommand{\lstlistlistingname}{List of \lstlistingname s}%
 \usepackage[nounderscore]{syntax}
@@ -15,6 +16,7 @@
 \author{Ege Özkan}
 \title{Fluxion Language Specification 0.1 \\ \large{Part I: Syntax \& Semantics}}
 
+\def\rot{\rotatebox}
 
 \begin{document}
 
@@ -194,7 +196,7 @@ Vectors are subset of Matrices, so much so that, there is no special production 
 \begin{grammar}
 <identifier> := [<identifier>, `::']<letter>, <unicode>*
 
-<function> := <identifier>, `(', (<variable> | <literal> | <expression>) , `)'
+<function> := <identifier>, `(', (<variable> | <literal> | <expression> | <logical\_condition> , `)'
 
 <variable> := <identifier> | <function>
 
@@ -327,11 +329,20 @@ a + b*i
 -3 - 1i
 \end{lstlisting}
 
-\subsection{Irrational Numbers}
+\subsection{Reserved Numerals}
 
-Irrational numbers are undefinable by normal user programs in Fluxion. However, special Irrational numbers that are often used in math, namely $\pi, \tau$ and $e$ are predefined in the language as \code{pi}, \code{tau} and \code{euler}. Functions that act on these values are hardcoded to resolve them in mathematically correct ways.
+Users cannot write some numerals themselves, these numerals may be needed to explain complex topics such as cardinality of infinite sets, irrational numbers, or function convergence.
+
+\subsubsection{Irrational Numerals}
+Irrational numbers are undefinable by normal user programs in Fluxion. However, special Irrational numbers that are often used in math, namely $\pi, \tau$ and $e$ are predefined in the language as \code{pi}, \code{tau} and \code{euler}. Functions that act on these values are hardcoded to resolve them in mathematically correct ways.\\
 
 For instance, \code{sin(pi)} resolves to \code{0} and \code{ln(euler)} resolves to \code{1}. In expressions where such resolutions are impossible these variables are retained as variables. For more information, please refeer to \S 6.1.2.
+
+\subsubsection{Cardinality of Infinite Sets}
+
+Cardinality of countably infinite sets, that is for a set $S$, if $|S| = |\mathbb{N}|$ that set is told to be countably infinite, as such, to represent this cardinal, the literal \code{countable} is used. It is equivalent to $|\mathbb{N}| = \aleph_0$. \\
+
+Cardinality of uncountably infinite sets is said to be \code{uncountable}, which is mathematically equivalent to any cardinal numeral larger than $\aleph_0$.
 
 \section{Matrices}
 
@@ -479,12 +490,12 @@ Numbers & \code{+}, \code{-}, \code{/}, \code{*}, \code{\^}, \code{'}, \code{||}
 Integers & \code{!} \\
 Imaginals & \code{\textbackslash} \\
 \midrule
-Sets & \code{+}, \code{-}, \code{in}, \code{\textbackslash}, \code{||}, \code{'}, \code{\&}, \code{*} \\
+Sets & \code{+}, \code{-}, \code{in}, \code{||}, \code{\&}, \code{*} \\
 \midrule
 Matrices & \code{+}, \code{-}, \code{\&}, \code{||}, \code{\textbackslash} \\
 Vectors & \code{*} \\
 \midrule
-Sequences & \code{+}, \code{||} \\
+Sequences & \code{+}, \code{||}, \code{\&}, \code{-}, \code{in} \\
 \bottomrule
 \end{tabular}
 \caption{Domains of homogeneous algebraic operators, an homogeneous operator requires all of its operands to be of this type to work correctly.}
@@ -550,27 +561,242 @@ When used between two vectors, \code{*} means the dot product of these vectors, 
 
 \subsection{Set Operations}
 
-Unlike other main types that has subtypes, all sets have a uniform set of operations that act on them. In sets,
+Unlike other main types that has subtypes, all sets have a uniform set of operations that act on them. In sets, \code{+} acts as the join operation, while \code{-} is the disjoin operation, returning a set of elements not inside the other set. \code{\&} acts as the intersection operator and \code{*} acts as cartesian multiplication. \\
 
-\chapter{Mathematical Proofs and Functions}
+The cardinality operator, \code{||}, when used on finite sets, returns their length. When used on infinite sets, depending on its countability, it may either return \code{countable} \code{uncountable} (\S 3.3.4). \\
 
-\section{Exponentiation by Complex Numerals}
+The contains operator, \code{in}, does not check for subsets when used with two sets. It still adheres to rules that will be explained in (\S4.5.3).
 
-Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
+\subsection{Sequence Operations}
 
-\begin{table}[h]
-\begin{tabular}{lll}
-$w^z$ & $= e^{\ln|w^z|}$ & \\
-& $= e^{z\ln|w|}$ & \\
-& $= e^{(a + bi)\ln|w|}$ & \\
-& $= e^{a\ln|w| + bi\ln|w|}$ & \\
-& $= e^{a\ln|w|}e^{bi\ln|w|}$ & (Using $a^xa^y = a^{x+y}$)\\
-& $= \left(e^{\ln|w|}\right)^a e^{bi\ln|w|}$  & (Using $\left(a^{b}\right)^c = a^{bc}$)\\
-& $= |w|^ae^{bi\ln|w|}$ & (Since $e^{ln|a|} = |a|$) \\
-& $= |w|^ae^{b\ln|w|i}$ & Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$\\
-& $= |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right)$ & (Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)
+Sequences have two operations that differ from sets, they support \code{+}, used as concatanation, and \code{||}, which return the length of the sequence if the sequence is a finite sequence, or \code{countable} if it is infinite. (There are no uncountably infinite sequences.) \\
+
+Other operators listed under Table \ref{tab:operatordomains} behave the same way as they do in set operations as shown in the Set Operations subsection (\S 4.4.3).
+
+\section{Heterogenous Operations}
+
+Heterogeneous operations are operations that can be performed between different types of values.
+
+\subsection{Containment operator \code{in}}
+
+The \code{in} operator, when its left-hand operand is any expression and when its right-hand operand is a set or a sequence, checks if the expression (or the the value it evaluates to) is inside the set or the sequence.
+
+\subsection{Scalar Multiplication Operator \code{*}}
+
+When one of the operands of the operator \code{*} is a numeric type, and the other a matrix type, the expression evaluates to the same matrix scalarly multiplied with the numeric type.
+
+\section{Boolean Operations}
+
+Boolean operations differ significantly from algebraic operations. To start with, they are classified differently. \textit{Pure Boolean Operations} act only on boolean literals, contrasted with \textit{Comparison Operators}, which act only on algebraic types, they themselves can be categorised further, \textit{Closed Comparison Operators}, operators that can compare only between the same algebraic types and \textit{Open Comparison Operators}, operators that can compare between all algebraic types.
+
+\begin{table}[htbb]
+\label{tab:booleanoperators}
+\begin{tabular}{ll}
+\toprule
+Operation Type & Operators \\
+\midrule
+Pure Boolean & \code{\&}, \code{|}, \code{\textbackslash} \\
+Open Comparison & \code{=}, \code{\textbackslash =} \\
+Closed Comparison & \code{<}, \code{>}, \code{<=}, \code{>=} \\
+\bottomrule
 \end{tabular}
+\caption{Operators used with different types of boolean operations.}
 \end{table}
+
+All of these operators, regardless of their types, evaluate to boolean literals \code{True} and \code{False}. Closed Comparison Operations, although allowed only within the same type, are also allowed between a main type and one of its subtypes, such as a \code{vector} and a \code{matrix}. Or between \code{decimals} and \code{integers}, but not between \code{imaginals} and other numeric types. \\
+
+\subsection{Pure Boolean Operators}
+
+Pure boolean operators are logical and (\code{\&}, $\land$), logical or (\code{|}, $\lor$) and logical not (\code{\textbackslash}, $\lnot$) they behave the same way as they do in mathematics. \\
+
+When evaluating, binary pure boolean operators short-circuit.
+
+\subsection{Open Comperasion Operators}
+
+These operators are the equals (\code{=}) and not equals (\code{\textbackslash}) operators. By definition, if \code{a = b} evaluates to \code{True}, \code{a \textbackslash = b} will evaluate to \code{False}. \\
+
+Equality operator, when both of its operands are not of the same type, evaluates to \code{False}, unless if one of them is an integer and the other a double of the same value as that integer, in which case, it evaluates to \code{True}. \\
+
+The equality operator evaluates to \code{True} if both operands are:
+
+\begin{itemize}
+\itemsep0em
+\item integers or decimals, and their values are equal.
+\item imaginals and their respective imaginary and real parts are equal.
+\item matrices of same dimensions and their elements in the same indices are equal.
+\item sets and they contain the same elements, \textit{regardless} of their order, even if they are enumarables.
+\item sequences and they contain the same elements in the same order.
+\end{itemize}
+
+\subsection{Closed Comperasion Operators}
+
+These operators are the less than (\code{<}), greater than (\code{>}), and their ...or equal to contraparts (\code{<=}, \code{>=}) \\
+
+These operators accept:
+
+\begin{enumerate}
+\item Two operands of the same type that are not matrices, imaginals or sequences.
+\item An operand of a main type and an operand of who is a subtype of that main type.
+\item An operand that is an integer, and another operand that is a double.
+\item An operand that is an integer or a double, and another operand that is an irrational number.
+\end{enumerate}
+
+A less than operation evaluates to \code{True} when two operands are:
+
+\begin{itemize}
+\item doubles, integers or irrational numerals, and the left hand side has a smaller value.
+\item sets and the left hand side is a strict subset of the right hand side.
+\end{itemize}
+
+A greater than operation evaluates to \code{True} when two operands are:
+
+\begin{itemize}
+\item doubles or integers, and the left hand side has a greater value.
+\item sets and the left hand side is a strict superset of the right hand side.
+\end{itemize}
+
+Their ...greater than counterparts also evaluate to \code{True}, if an equals operation between these two operands would evaluate to \code{True}.
+
+
+\chapter{Variables}
+
+\vspace{1em}
+\begin{quotation}
+This chapter outlines the variable system of Fluxion, including function definitons. As well as outlining a list of built-in functions.
+\end{quotation}
+\newpage
+
+Fluxion's assignment operator `:=' is used to assign variables and functions to expressions. In Fluxion, assignment can only occur in the top level scope of the program. \\
+
+Functions are also special variables, defined using an identifier that must not be priorly assigned to any value.\\
+
+When a variable is assigned to an expression, the variable's name in the global scope is now bound to that expression.
+
+\section{Pure Variables}
+
+Pure variables can be assigned to any expression. They can also be redefined, but the redefinitions do not affect other variables, because the expressions in the right hand side of the pure variable assignments are evaluated during assignment. For more information about evaluation, please see (\S 5.3). For instance:
+
+\begin{lstlisting}
+> r := 12
+> a := r * 2
+> a
+| 24
+> r := 128
+> a
+| 24
+\end{lstlisting}
+
+Attempting to use an unbound variable will result in an \code{Undefined} error literal to be emitted.
+
+\begin{lstlisting}
+> x := y + 2
+| Undefined: Identifier "y" is not assigned.
+\end{lstlisting}
+
+\section{Functions}
+Functions are special forms of variables with their own scope. Functions are evaluated lazily, when a function call occurs. When defining a function, right hand side is an expression, as in pure variables, but the left hand side must be of the form \code{f(x)} where \code{f} is a valid identifier and \code{x} must be of the form of a pure variable or a logical condition (used in partial functions) (\S 2.5), or a list of functions. \\
+
+The variable defined in the left hand side of the function, when used in the right hand side, refeers to a currently unbound variable. For more information as well as the resolution of Function calls, see (\S 5.3.1). \\
+
+Functions can also be assigned to other functions. But they may not return other functions.
+\subsection{Partial Functions}
+
+Partial functions are defined by defining more than one function with the same identifier, but with a logical condition using a variable name.
+
+\begin{lstlisting}
+f(x < 0) := 0
+f(x >= 0) := 1
+g(x, y < 0) := x * y
+g(x, y >= 1) := x + y 
+\end{lstlisting}
+
+If a partial function is called with a value it is not defined for, an \code{Undefined} error literal is emitted.
+
+\subsection{Function Domains}
+
+Function domains are assumed to be in the real numbers unless specifically defined, however, domains of functions can be restricted by the usage of \code{f(x: S1) -> S2 := ...}, where \code{S1} and \code{S2} are sets. \\
+
+\subsection{Unary Function Inverter Operation \code{\textbackslash}}
+
+When the operator \code{\textbackslash} is used on a function, it evaluates to a function that is the inverse of that function. However, not all functions have inverses, hence, there are cases when this expression will evaluate to \code{Undefined} if the functions does not have a one-to-one mapping on its domain. \\
+
+The calculated inverse function can be assigned to another function, for instance, if there exists a function \code{f}, \code{g(x) := \textbackslash f(x)} will assign \code{g(x)} to the inverse of \code{f(x)}, moreover, reverse functions can also be called directly, for instance, by \code{\textbackslash f(3)}. \\
+
+The term \code{\textbackslash f(x)} is mathamatically equivalent to $f^{-1}(x)$.
+
+\subsection{Binary Convergence Operator \code{->}}
+
+\code{->} can be used for taking the limit of a function. \code{f(x -> 0)} takes the limit for 0, \code{f(x -> 0+)} takes the function's limit approaching from positive side, and \code{f(x -> 0-)} takes the functions limit from the left side.
+
+\section{Expression Evaluation}
+
+Expressions are evaluated by first resolving the variables used inside by refeering to the closest scope, and then reducing the expressions as per the reducing rules. In most cases, by evaluating the operations between types. \\
+
+\subsection{Name Resolution}
+
+Names are resolved by using the value of the variable name in the closest scope. If no such variable exists, the \code{Undefined} literal is emitted.
+
+When evaluating pure variables, this scope is always the global scope, hence evaluation is easy. However, when evaluating a function, global scope might become another function:
+
+\begin{lstlisting}
+f(y) = y + 2
+y = 2
+g(x) = f(x + 2) + 4
+g(y)
+\end{lstlisting}
+
+Here, when \code{g(y)} is called, first the \code{y} resolves to \code{2}, then the expression assigned evaluates to \code{f(2 + 2) + 4}, which reduces to \code{f(4) + 4}, \code{f(y)} is then called, where \code{y} resolves to \code{4} of the function call and not the \code{2} from global scope. Following which, \code{f(4)} evaluates to \code{4 + 2}, turning the expression into \code{4 + 2 + 4}, which finally reduces (in two steps) to \code{10}.
+
+\section{Macros}
+
+Macros are special functions that act on the semantic representation of the source code. They are defined using the extension facilities of the language. Macros cannot be defined by the Fluxion language itself. Fluxion does not come with any built in variables, but its standard library contains some.
+
+\section{Built-in Functions}
+
+Fluxion comes pre-equipped with multiple functions from various fields of mathematics to facilitate ease of use for the user for everyday mathematical tasks.
+
+These functions are overlaid in Table \ref{utifunctions}. In this table, the arguments of the functions are translated to their equivalents as $x, y, z, t, u$ in order.
+
+\begin{table}[]
+\label{tab:utilfunctions}
+\begin{tabular}{llll}
+\toprule
+Function & Equivalent & Domain & Notes \\
+\midrule
+\code{log(base, value)} & $\log_x{y}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$ & -- \\
+\code{ln(value)} & $\ln{x}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$ & -- \\
+\code{root(base, value)} & $\sqrt[x]{y}$ & $\mathbb{C} \rightarrow \mathbb{C}$ & -- \\
+\code{sqrt(value)} & $\sqrt{x}$ & $\mathbb{C} \rightarrow \mathbb{C}$ & -- \\
+\code{sin(x)} & $\sin{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$ & -- \\
+\code{cos(x)} & $\cos{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$ & -- \\
+\code{tan(x)} & $\tan{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow (-\infty, +\infty)$ & -- \\
+\code{cot(x)} & $\cot{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow (-\infty, +\infty)$ & -- \\
+\code{sec(x)} & $\sec{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow \mathbb{R} - (-1, 1)$ & -- \\
+\code{csc(x)} & $\csc{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow \mathbb{R} - (-1, 1)$ & -- \\
+\bottomrule
+\end{tabular}
+\caption{Builtin functions.}
+\end{table}
+
+
+
+
+%\chapter{Mathematical Proofs and Functions}
+%\section{Exponentiation by Complex Numerals}
+%Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
+%\begin{table}[h]
+%\begin{tabular}{lll}
+%$w^z$ & $= e^{\ln|w^z|}$ & \\
+%& $= e^{z\ln|w|}$ & \\
+%& $= e^{(a + bi)\ln|w|}$ & \\
+%& $= e^{a\ln|w| + bi\ln|w|}$ & \\
+%& $= e^{a\ln|w|}e^{bi\ln|w|}$ & (Using $a^xa^y = a^{x+y}$)\\
+%& $= \left(e^{\ln|w|}\right)^a e^{bi\ln|w|}$  & (Using $\left(a^{b}\right)^c = a^{bc}$)\\
+%& $= |w|^ae^{bi\ln|w|}$ & (Since $e^{ln|a|} = |a|$) \\
+%& $= |w|^ae^{b\ln|w|i}$ & Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$\\
+%& $= |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right)$ & (Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)
+%\end{tabular}
+%\end{table}
 
 
 \bibliographystyle{plain}

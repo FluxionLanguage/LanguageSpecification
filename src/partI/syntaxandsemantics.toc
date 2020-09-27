@@ -29,14 +29,16 @@
 \contentsline {subsection}{\numberline {3.3.1}Integers}{17}%
 \contentsline {subsection}{\numberline {3.3.2}Decimal}{17}%
 \contentsline {subsection}{\numberline {3.3.3}Imaginary numbers}{17}%
-\contentsline {subsection}{\numberline {3.3.4}Irrational Numbers}{18}%
+\contentsline {subsection}{\numberline {3.3.4}Reserved Numerals}{18}%
+\contentsline {subsubsection}{Irrational Numerals}{18}%
+\contentsline {subsubsection}{Cardinality of Infinite Sets}{18}%
 \contentsline {section}{\numberline {3.4}Matrices}{18}%
-\contentsline {subsection}{\numberline {3.4.1}Vectors}{18}%
-\contentsline {section}{\numberline {3.5}Sets}{18}%
+\contentsline {subsection}{\numberline {3.4.1}Vectors}{19}%
+\contentsline {section}{\numberline {3.5}Sets}{19}%
 \contentsline {subsection}{\numberline {3.5.1}Enumerables}{19}%
 \contentsline {subsection}{\numberline {3.5.2}Predefined Sets and Enumerables}{19}%
 \contentsline {subsubsection}{Number Sets}{19}%
-\contentsline {section}{\numberline {3.6}Sequences}{19}%
+\contentsline {section}{\numberline {3.6}Sequences}{20}%
 \contentsline {chapter}{\numberline {4}Operations}{21}%
 \contentsline {section}{\numberline {4.1}Operator Semantics}{22}%
 \contentsline {section}{\numberline {4.2}Error Literals}{23}%
@@ -50,5 +52,22 @@
 \contentsline {subsubsection}{Common Operations}{26}%
 \contentsline {subsubsection}{Operations Exclusive to Vectors}{26}%
 \contentsline {subsection}{\numberline {4.4.3}Set Operations}{26}%
-\contentsline {chapter}{\numberline {5}Mathematical Proofs and Functions}{27}%
-\contentsline {section}{\numberline {5.1}Exponentiation by Complex Numerals}{27}%
+\contentsline {subsection}{\numberline {4.4.4}Sequence Operations}{26}%
+\contentsline {section}{\numberline {4.5}Heterogenous Operations}{27}%
+\contentsline {subsection}{\numberline {4.5.1}Containment operator \texttt {in}}{27}%
+\contentsline {subsection}{\numberline {4.5.2}Scalar Multiplication Operator \texttt {*}}{27}%
+\contentsline {section}{\numberline {4.6}Boolean Operations}{27}%
+\contentsline {subsection}{\numberline {4.6.1}Pure Boolean Operators}{27}%
+\contentsline {subsection}{\numberline {4.6.2}Open Comperasion Operators}{28}%
+\contentsline {subsection}{\numberline {4.6.3}Closed Comperasion Operators}{28}%
+\contentsline {chapter}{\numberline {5}Variables}{31}%
+\contentsline {section}{\numberline {5.1}Pure Variables}{32}%
+\contentsline {section}{\numberline {5.2}Functions}{32}%
+\contentsline {subsection}{\numberline {5.2.1}Partial Functions}{33}%
+\contentsline {subsection}{\numberline {5.2.2}Function Domains}{33}%
+\contentsline {subsection}{\numberline {5.2.3}Unary Function Inverter Operation \texttt {\textbackslash }}{33}%
+\contentsline {subsection}{\numberline {5.2.4}Binary Convergence Operator \texttt {->}}{33}%
+\contentsline {section}{\numberline {5.3}Expression Evaluation}{34}%
+\contentsline {subsection}{\numberline {5.3.1}Name Resolution}{34}%
+\contentsline {section}{\numberline {5.4}Macros}{34}%
+\contentsline {section}{\numberline {5.5}Built-in Functions}{34}%
