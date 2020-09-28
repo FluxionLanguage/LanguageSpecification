@@ -73,11 +73,14 @@
 \contentsline {section}{\numberline {5.5}Built-in Functions}{36}%
 \contentsline {chapter}{\numberline {6}Reductions}{39}%
 \contentsline {section}{\numberline {6.1}Reductions on Simple Operations}{40}%
-\contentsline {section}{\numberline {6.2}Reductions on Functions}{41}%
-\contentsline {section}{\numberline {6.3}Reductions on Logarithmic Functions}{41}%
-\contentsline {section}{\numberline {6.4}Reductions on Trigonometric Functions}{42}%
-\contentsline {section}{\numberline {6.5}Reductions on Gamma Function}{42}%
-\contentsline {section}{\numberline {6.6}Reductions on Sum and Product}{42}%
-\contentsline {section}{\numberline {6.7}Reductions on Integrals}{43}%
-\contentsline {chapter}{\numberline {7}Mathematical Proofs and Functions}{45}%
-\contentsline {section}{\numberline {7.1}Exponentiation by Complex Numerals}{45}%
+\contentsline {section}{\numberline {6.2}Reductions on Functions}{40}%
+\contentsline {section}{\numberline {6.3}Reductions on Logarithmic Functions}{40}%
+\contentsline {section}{\numberline {6.4}Reductions on Trigonometric Functions}{41}%
+\contentsline {section}{\numberline {6.5}Reduction on Inverse Trigonometric Functions}{42}%
+\contentsline {section}{\numberline {6.6}Reductions on Gamma Function}{42}%
+\contentsline {section}{\numberline {6.7}Reductions on Sum and Product}{42}%
+\contentsline {section}{\numberline {6.8}Reductions on Integrals}{42}%
+\contentsline {section}{\numberline {6.9}Reductions on Matrices}{42}%
+\contentsline {section}{\numberline {6.10}Reductions on Sets}{42}%
+\contentsline {chapter}{\numberline {7}Mathematical Proofs and Functions}{43}%
+\contentsline {section}{\numberline {7.1}Exponentiation by Complex Numerals}{43}%

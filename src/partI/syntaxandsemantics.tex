@@ -809,45 +809,26 @@ This chapter includes how the Fluxion language reduces expressions to simpler ex
 \end{quotation}
 \newpage
 
-Reductions comes in many shapes and forms, some act on simple operation expressions, whereas others may be able to actually reduce builtin functions. Therefore, the reduction rules are covered section by section. Reduction rules are described via mathematical formulae, the characters $\alpha$, $\beta$, $\lambda$ etc are used to describe any sort of expression unless otherwise specified. A base expression, followed by a $\Rightarrow$ followed by the reduced expression. \\
+Reductions comes in many shapes and forms, some act on simple operation expressions, whereas others may be able to actually reduce builtin functions. Therefore, the reduction rules are covered section by section. Reduction rules are described via mathematical formulae, the characters $\alpha$, $\beta$, $\lambda$ etc are used to describe any sort of expression unless otherwise specified. Also assume that any variables are numeric in types unless otherwise specified. A base expression, followed by a $\Rightarrow$ followed by the reduced expression. \\
 
-Moreover, not all of these reduction rules are valid for all the Fluxion types and in all cases, see the Table \ref{tab:reductionruledomains} conditions for applying these rules.
+The $\mathbf{M}, \mathbf{V}, \mathbf{S}, \mathbf{E}, \mathbf{A}, \mathbf{N}$ domains represent types of variables. (Matrices, vectors, sets, enumerables, sequences and numbers, respectivelly.) In addition to classic number domains. $a_T$ refeers to the type of an expression. Moreover, $a \in^T \mathbf{S}$ is used to describe that a is of type $\mathbf{S}$ \\
 
-\begin{table}[htbb]
-\label{tab:reductionruledomains}
-\begin{tabular}{ll}
-\toprule
-Rule & Condition \\
-\midrule
-6.1 & When $\alpha$, $\beta$ is the same type and $\alpha, \beta, \lambda$ matrices or integers. \\
-6.2 & Same as 6.1 \\
-6.3 & All numerical \\
-6.4 & All numerical, $\lambda \neq 0$ \\
-6.5 & All numerical. \\
-6.6 & $\alpha, \beta \in \mathbb{N}, \beta \geq \alpha$ \\
-6.7 & $\alpha, \beta \in \mathbb{N}, \alpha \geq \beta$ \\
-6.8 & $f: S_1 \rightarrow S_2 \rightarrow f^{-1}: S_2 \rightarrow S_1$ \\
-6.9 & $\lambda \in \mathbb{Z^+}$ \\
-6.10 & $x, \lambda \in \mathbb{Z^+}$ \\
-6.26 & $\lambda \in \mathbb{Z^+}$ \\
-\bottomrule
-\end{tabular}
-\caption{Conditions for applying the reduction rules.}
-\end{table}
+Moreover, not all of these reduction rules are valid for all the Fluxion types and in all cases, conditions for them are given with parantheses.
 
 \section{Reductions on Simple Operations}
 
 Assume that, $\alpha$ and $\beta$ are any expressions, moreover, assume that if $\alpha$ and $\beta$ are both vectors or matrices, $\gamma$ is their common integer divisor or $\exists \gamma \in \mathbb{C}, \gamma\alpha = \beta$. If not, $\gamma = 1$.
 
-\begin{eqnarray}
-\alpha\lambda + \beta\lambda \Rightarrow \left( \frac{\alpha}{\gamma} + \frac{\beta}{\gamma}\right)\gamma\lambda \\
-\alpha\lambda - \beta\lambda \Rightarrow \left( \frac{\alpha}{\gamma} - \frac{\beta}{\gamma}\right) \gamma\lambda \\
-\alpha\lambda^m \times \beta\lambda^n \Rightarrow  \alpha\beta\lambda^{m + n} \\
-\lambda \neq 0, \frac{\alpha\lambda^{m}}{\beta\lambda^{n}} \Rightarrow \frac{ \alpha}{\beta}\lambda^{m - n} \\
-\alpha^{\lambda}\beta^{\lambda} \Rightarrow \left(\alpha\beta\right)^\lambda\\
-\frac{\beta!}{\alpha!} \Rightarrow \left(\beta - \alpha\right)! \\
-\frac{\beta!}{\alpha!} \Rightarrow \frac{1}{\left(\beta - \alpha\right)}!
-\end{eqnarray}
+
+\begin{align}
+\alpha\lambda + \beta\lambda &\Rightarrow \left( \frac{\alpha}{\gamma} + \frac{\beta}{\gamma}\right)\gamma\lambda & \left( \alpha_T = \beta_T, \alpha, \beta, \lambda \in^T \mathbf{M} \cup \mathbf{N} \right)\\
+\alpha\lambda - \beta\lambda &\Rightarrow \left( \frac{\alpha}{\gamma} - \frac{\beta}{\gamma}\right) \gamma\lambda & \text{(Same as 6.1)}\\
+\alpha\lambda^m \times \beta\lambda^n &\Rightarrow  \alpha\beta\lambda^{m + n} & \left( \alpha, \beta \in^T \mathbf{M} \cup \mathbf{N} \right)\\
+\frac{\alpha\lambda^{m}}{\beta\lambda^{n}} &\Rightarrow \frac{ \alpha}{\beta}\lambda^{m - n} & \left(\lambda \neq 0, \alpha, \beta \in^T \mathbf{M} \cup \mathbf{N} \right)\\
+\alpha^{\lambda}\beta^{\lambda} &\Rightarrow \left(\alpha\beta\right)^\lambda & \left( \alpha, \beta \in^T \mathbf{N} \right)\\
+\frac{\beta!}{\alpha!} &\Rightarrow \left(\beta - \alpha\right)! & \left( \alpha, \beta \in^T \mathbf{N}, \alpha \leq \beta \right)\\
+\frac{\beta!}{\alpha!} &\Rightarrow \frac{1}{\left(\beta - \alpha\right)!} & \left( \alpha, \beta \in^T \mathbf{N}, \alpha > \beta \right)
+\end{align}
 
 \section{Reductions on Functions}
 
@@ -857,13 +838,17 @@ f(f^{-1}(\lambda)) \Rightarrow \lambda
 
 \section{Reductions on Logarithmic Functions}
 
-\begin{eqnarray}
-e^{\ln\lambda} \Rightarrow \lambda \\
-x^{\log_x\lambda} \Rightarrow \lambda
-\end{eqnarray}
+All variables must follow the domains of the functions.
+
+\begin{align}
+e^{\ln\lambda} &\Rightarrow \lambda\\
+\alpha^{\log_\alpha\lambda} &\Rightarrow \lambda \\
+\log_{\alpha}\lambda^\beta &\Rightarrow \beta \log_\alpha \lambda \\
+\log_{\alpha}\lambda + \log_\alpha\beta &\Rightarrow \log_{\alpha} (\lambda\beta) \\
+\end{align}
 
 \section{Reductions on Trigonometric Functions}
-
+All variables must follow the domains of the functions.
 \begin{eqnarray}
 \frac{\sin\lambda}{\cos \lambda} \Rightarrow \tan \lambda \\
 \frac{\cos \lambda}{\sin \lambda} \Rightarrow \cot \lambda \\
@@ -882,11 +867,22 @@ x^{\log_x\lambda} \Rightarrow \lambda
 2\sin^2\lambda - 1 \Rightarrow \cos \left(2 \lambda \right)
 \end{eqnarray}
 
+\section{Reduction on Inverse Trigonometric Functions}
+All variables must follow the domains of the functions.
+\begin{eqnarray}
+\sin(\sin^{-1}\lambda) \Rightarrow \lambda \\
+\cos(\cos^{-1}\lambda) \Rightarrow \lambda \\
+\tan(\tan^{-1}\lambda) \Rightarrow \lambda \\
+\cot(\cot^{-1}\lambda) \Rightarrow \lambda \\
+\sec(\sec^{-1}\lambda) \Rightarrow \lambda \\
+\end{eqnarray}
+
+
 \section{Reductions on Gamma Function}
 
-\begin{eqnarray}
-\Gamma(\lambda) \Rightarrow (\lambda - 1)!
-\end{eqnarray}
+\begin{align}
+\Gamma(\lambda) &\Rightarrow (\lambda - 1)! & \left(\lambda \in^T \mathbf{N}, \lambda \in \mathbb{C} \right)
+\end{align}
 
 \section{Reductions on Sum and Product}
 
@@ -902,6 +898,20 @@ x^{\log_x\lambda} \Rightarrow \lambda
 \int \lambda'(x) \text{d}x \Rightarrow \lambda(x) + cons \\
 \int_{\alpha}^{\beta} f(x) \text{d}x + \int_{\beta}^{\delta} g(x) \text{d}x \Rightarrow \int_{\alpha}^{\delta} \left( f(x) + g(x) \right) \text{d}x  
 \end{eqnarray}
+
+\section{Reductions on Matrices}
+
+\begin{eqnarray}
+\lambda - \lambda \Rightarrow 0
+\vec{0} \Rightarrow 0
+\end{eqnarray}
+
+\section{Reductions on Sets}
+
+\begin{eqnarray}
+\lbrace x \in S | x \rbrace \rightarrow S
+\end{eqnarray}
+
 
 \chapter{Mathematical Proofs and Functions}
 \section{Exponentiation by Complex Numerals}
