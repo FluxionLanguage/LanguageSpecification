@@ -757,46 +757,167 @@ Fluxion comes pre-equipped with multiple functions from various fields of mathem
 
 These functions are overlaid in Table \ref{utifunctions}. In this table, the arguments of the functions are translated to their equivalents as $x, y, z, t, u$ in order.
 
-\begin{table}[]
+\begin{table}[httb]
 \label{tab:utilfunctions}
-\begin{tabular}{llll}
+\begin{tabular}{lll}
 \toprule
-Function & Equivalent & Domain & Notes \\
+Function & Equivalent & Domain \\
 \midrule
-\code{log(base, value)} & $\log_x{y}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$ & -- \\
-\code{ln(value)} & $\ln{x}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$ & -- \\
-\code{root(base, value)} & $\sqrt[x]{y}$ & $\mathbb{C} \rightarrow \mathbb{C}$ & -- \\
-\code{sqrt(value)} & $\sqrt{x}$ & $\mathbb{C} \rightarrow \mathbb{C}$ & -- \\
-\code{sin(x)} & $\sin{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$ & -- \\
-\code{cos(x)} & $\cos{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$ & -- \\
-\code{tan(x)} & $\tan{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow (-\infty, +\infty)$ & -- \\
-\code{cot(x)} & $\cot{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow (-\infty, +\infty)$ & -- \\
-\code{sec(x)} & $\sec{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow \mathbb{R} - (-1, 1)$ & -- \\
-\code{csc(x)} & $\csc{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow \mathbb{R} - (-1, 1)$ & -- \\
+\code{sum(from, to, sequence)} & $\sum_{x}^{y}z$ & $\{\forall x, y \in \mathbb{N}\land z \subseteq \mathbb{C} | y \geq x \} \rightarrow \mathbb{C}$\\
+\code{prod(from, to, sequence)} & $\prod_{x}^{y}z$ & $\{\forall x, y \in \mathbb{N}\land z \subseteq \mathbb{C} | y \geq x \} \rightarrow \mathbb{C}$ \\
+\code{isum(sequence)} & $\sum_0^{\infty}x$ & $\forall z \subseteq \mathbb{C} \rightarrow \mathbb{C} + \{-\infty, \infty, \texttt{Indeterminate} \}$ \\
+\code{iprod(sequence)} & $\prod_0^{\infty}x$ & $\forall z \subseteq \mathbb{C} \rightarrow \mathbb{C} + \{-\infty, \infty, \texttt{Indeterminate} \}$ \\
+\code{log(base, value)} & $\log_x{y}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$\\
+\code{ln(value)} & $\ln{x}$ & $\mathbb{R^+} \rightarrow \mathbb{R}$\\
+\code{root(base, value)} & $\sqrt[x]{y}$ & $\mathbb{C} \rightarrow \mathbb{C}$\\
+\code{sqrt(value)} & $\sqrt{x}$ & $\mathbb{C} \rightarrow \mathbb{C}$\\
+\code{sin(x)} & $\sin{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$\\
+\code{cos(x)} & $\cos{x}$ & $(-\infty, +\infty) \rightarrow [-1, 1]$\\
+\code{tan(x)} & $\tan{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow (-\infty, +\infty)$\\
+\code{cot(x)} & $\cot{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow (-\infty, +\infty)$\\
+\code{sec(x)} & $\sec{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | \frac{\pi}{2} + k \pi \} \rightarrow \mathbb{R} - (-1, 1)$\\
+\code{csc(x)} & $\csc{x}$ &$\mathbb{R} - \{\forall k \in \mathbb{Z} | k \pi \} \rightarrow \mathbb{R} - (-1, 1)$\\
+\code{arcsin(x)} & $\sin^{-1}x$  & $[-1, 1] \rightarrow [-\frac{pi}{2}, \frac{\pi}{2}]$\\
+\code{arccos(x)} & $\cos^{-1}x$ & $[-1, 1] \rightarrow [0, \pi]$\\
+\code{arctan(x)} & $\tan^{-1}{x}$ & $ (-\infty, infty) \rightarrow (-\frac{pi}{2}, \frac{\pi}{2})$ \\
+\code{arccot(x)} & $\cot^{-1}x$ & $(-\infty, infty) \rightarrow (0, \pi)$ \\
+\code{arcsec(x)} & $\sec^{-1}x$ & $(-\infty,  -1] \cup [1, \infty) \rightarrow [0, \frac{\pi}{2}) \cup (\frac{\pi}{2}, \pi]$ \\
+\code{arccsc(x)} & $\csc^{-1}x$ & $(-\infty,  -1] \cup [1, \infty) \rightarrow [-\frac{pi}{2}, 0) \cup (0, \frac{\pi}{2}]$\\
+\code{Re(complex)} & $\Re(x)$ & $\mathbb{C} \rightarrow \mathbb{R}$\\
+\code{Im(complex)} & $\Im(x)$ & $\mathbb{C} \rightarrow \mathbb{R}$\\
+\code{gamma(value)} & $\Gamma(x)$ & $\{ \forall x \in \mathbb{\mathbb{C}} | \Re(x) > 0 \} \rightarrow \mathbb{C}$ \\
+\code{floor(num)} & $\lfloor x \rfloor$ & $\mathbb{R} \rightarrow \mathbb{Z}$\\
+\code{ceil(num)} & $\lceil x \rceil$ & $\mathbb{R} \rightarrow \mathbb{Z}$ \\
+\code{modulo(base, num)} & $c := y \mod_x$ & $\forall y \in \mathbb{R}, x \in \mathbb{Z} \rightarrow \mathbb{C}$ \\
+\code{even(num)} & $x = 0\mod_2$ & $\mathbb{Z} \rightarrow \left\lbrace \texttt{True}, \texttt{False} \right\rbrace$ \\
+\code{maclaurin(function)} & Maclaurin expansion. & -- \\
+\code{taylor(function)} & Taylor expansion. & -- \\
+\code{gcd(x, y)} & $\gcd(x, y)$ & $\mathbb{Z^+} \rightarrow \mathbb{Z^+}$ \\
+\code{defInt(function, var, from, to)} & $\int_{z}^u x dy$ & -- \\
+\code{int(function, var)} & $\int x dy $ & -- \\
 \bottomrule
 \end{tabular}
 \caption{Builtin functions.}
 \end{table}
 
 
+\chapter{Reductions}
 
+\vspace{1em}
+\begin{quotation}
+This chapter includes how the Fluxion language reduces expressions to simpler expressions.
+\end{quotation}
+\newpage
 
-%\chapter{Mathematical Proofs and Functions}
-%\section{Exponentiation by Complex Numerals}
-%Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
-%\begin{table}[h]
-%\begin{tabular}{lll}
-%$w^z$ & $= e^{\ln|w^z|}$ & \\
-%& $= e^{z\ln|w|}$ & \\
-%& $= e^{(a + bi)\ln|w|}$ & \\
-%& $= e^{a\ln|w| + bi\ln|w|}$ & \\
-%& $= e^{a\ln|w|}e^{bi\ln|w|}$ & (Using $a^xa^y = a^{x+y}$)\\
-%& $= \left(e^{\ln|w|}\right)^a e^{bi\ln|w|}$  & (Using $\left(a^{b}\right)^c = a^{bc}$)\\
-%& $= |w|^ae^{bi\ln|w|}$ & (Since $e^{ln|a|} = |a|$) \\
-%& $= |w|^ae^{b\ln|w|i}$ & Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$\\
-%& $= |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right)$ & (Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)
-%\end{tabular}
-%\end{table}
+Reductions comes in many shapes and forms, some act on simple operation expressions, whereas others may be able to actually reduce builtin functions. Therefore, the reduction rules are covered section by section. Reduction rules are described via mathematical formulae, the characters $\alpha$, $\beta$, $\lambda$ etc are used to describe any sort of expression unless otherwise specified. A base expression, followed by a $\Rightarrow$ followed by the reduced expression. \\
+
+Moreover, not all of these reduction rules are valid for all the Fluxion types and in all cases, see the Table \ref{tab:reductionruledomains} conditions for applying these rules.
+
+\begin{table}[htbb]
+\label{tab:reductionruledomains}
+\begin{tabular}{ll}
+\toprule
+Rule & Condition \\
+\midrule
+6.1 & When $\alpha$, $\beta$ is the same type and $\alpha, \beta, \lambda$ matrices or integers. \\
+6.2 & Same as 6.1 \\
+6.3 & All numerical \\
+6.4 & All numerical, $\lambda \neq 0$ \\
+6.5 & All numerical. \\
+6.6 & $\alpha, \beta \in \mathbb{N}, \beta \geq \alpha$ \\
+6.7 & $\alpha, \beta \in \mathbb{N}, \alpha \geq \beta$ \\
+6.8 & $f: S_1 \rightarrow S_2 \rightarrow f^{-1}: S_2 \rightarrow S_1$ \\
+6.9 & $\lambda \in \mathbb{Z^+}$ \\
+6.10 & $x, \lambda \in \mathbb{Z^+}$ \\
+6.26 & $\lambda \in \mathbb{Z^+}$ \\
+\bottomrule
+\end{tabular}
+\caption{Conditions for applying the reduction rules.}
+\end{table}
+
+\section{Reductions on Simple Operations}
+
+Assume that, $\alpha$ and $\beta$ are any expressions, moreover, assume that if $\alpha$ and $\beta$ are both vectors or matrices, $\gamma$ is their common integer divisor or $\exists \gamma \in \mathbb{C}, \gamma\alpha = \beta$. If not, $\gamma = 1$.
+
+\begin{eqnarray}
+\alpha\lambda + \beta\lambda \Rightarrow \left( \frac{\alpha}{\gamma} + \frac{\beta}{\gamma}\right)\gamma\lambda \\
+\alpha\lambda - \beta\lambda \Rightarrow \left( \frac{\alpha}{\gamma} - \frac{\beta}{\gamma}\right) \gamma\lambda \\
+\alpha\lambda^m \times \beta\lambda^n \Rightarrow  \alpha\beta\lambda^{m + n} \\
+\lambda \neq 0, \frac{\alpha\lambda^{m}}{\beta\lambda^{n}} \Rightarrow \frac{ \alpha}{\beta}\lambda^{m - n} \\
+\alpha^{\lambda}\beta^{\lambda} \Rightarrow \left(\alpha\beta\right)^\lambda\\
+\frac{\beta!}{\alpha!} \Rightarrow \left(\beta - \alpha\right)! \\
+\frac{\beta!}{\alpha!} \Rightarrow \frac{1}{\left(\beta - \alpha\right)}!
+\end{eqnarray}
+
+\section{Reductions on Functions}
+
+\begin{equation}
+f(f^{-1}(\lambda)) \Rightarrow \lambda
+\end{equation}
+
+\section{Reductions on Logarithmic Functions}
+
+\begin{eqnarray}
+e^{\ln\lambda} \Rightarrow \lambda \\
+x^{\log_x\lambda} \Rightarrow \lambda
+\end{eqnarray}
+
+\section{Reductions on Trigonometric Functions}
+
+\begin{eqnarray}
+\frac{\sin\lambda}{\cos \lambda} \Rightarrow \tan \lambda \\
+\frac{\cos \lambda}{\sin \lambda} \Rightarrow \cot \lambda \\
+\frac{1}{\sin \lambda} \Rightarrow \csc\lambda \\
+\frac{1}{\cos \lambda} \Rightarrow \sec\lambda \\
+\frac{1}{\tan\lambda} \Rightarrow \cot \lambda \\
+\frac{1}{\cot \lambda} \Rightarrow \tan \lambda \\
+\tan \lambda \cos\lambda \Rightarrow \sin \lambda \\
+\cot \lambda \sin \lambda \Rightarrow \cos \lambda \\
+\tan \lambda \csc \lambda \Rightarrow \sec \lambda \\
+\cot \lambda \sec \lambda \Rightarrow \csc \lambda \\
+\cos^2 \lambda + \sin^2 \lambda \Rightarrow 1 \\
+2 \cos \lambda \sin \lambda \Rightarrow \sin \left(2 \lambda\right) \\
+\cos^2 \lambda - \sin^2 \lambda \Rightarrow \cos \left(2 \lambda \right) \\
+1 - 2\cos^2\lambda \Rightarrow \cos \left(2 \lambda \right) \\
+2\sin^2\lambda - 1 \Rightarrow \cos \left(2 \lambda \right)
+\end{eqnarray}
+
+\section{Reductions on Gamma Function}
+
+\begin{eqnarray}
+\Gamma(\lambda) \Rightarrow (\lambda - 1)!
+\end{eqnarray}
+
+\section{Reductions on Sum and Product}
+
+\begin{eqnarray}
+\sum_{\alpha}^{\beta} \lambda + \sum_{\alpha}^{\beta} \lambda \Rightarrow 2 \sum_{\alpha}^{\beta} \lambda \\
+\sum_{\alpha}^{n = \beta} \gamma \lambda \Rightarrow \gamma \sum_{\alpha}^{\beta} \lambda \\
+\prod_{\alpha}^{n = \beta} \gamma \Rightarrow \left( \beta - \alpha \right)! \gamma^{\beta - \alpha}
+\end{eqnarray}
+
+\section{Reductions on Integrals}
+
+\begin{eqnarray}
+\int \lambda'(x) \text{d}x \Rightarrow \lambda(x) + cons \\
+\int_{\alpha}^{\beta} f(x) \text{d}x + \int_{\beta}^{\delta} g(x) \text{d}x \Rightarrow \int_{\alpha}^{\delta} \left( f(x) + g(x) \right) \text{d}x  
+\end{eqnarray}
+
+\chapter{Mathematical Proofs and Functions}
+\section{Exponentiation by Complex Numerals}
+Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
+\begin{align*}
+w^z & = e^{\ln|w^z|} & \\
+& = e^{z\ln|w|} & \\
+& = e^{(a + bi)\ln|w|} & \\
+& = e^{a\ln|w| + bi\ln|w|} & \\
+& = e^{a\ln|w|}e^{bi\ln|w|} & \text{(Using $a^xa^y = a^{x+y}$)}\\
+& = \left(e^{\ln|w|}\right)^a e^{bi\ln|w|}  & \text{(Using $\left(a^{b}\right)^c = a^{bc}$)}\\
+& = |w|^ae^{bi\ln|w|} & \text{(Since $e^{ln|a|} = |a|$)} \\
+& = |w|^ae^{b\ln|w|i} & \text{Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$}\\
+& = |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right) & \text{(Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)}
+\end{align*}
+
 
 
 \bibliographystyle{plain}
