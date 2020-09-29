@@ -1,86 +1,94 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Introduction}{7}%
-\contentsline {section}{\numberline {1.1}A Defence of Fluxion}{8}%
-\contentsline {subsection}{\numberline {1.1.1}Fluxion is not a Programming Language}{9}%
-\contentsline {subsection}{\numberline {1.1.2}the Name Fluxion}{9}%
-\contentsline {section}{\numberline {1.2}Contents of the Specification}{9}%
-\contentsline {chapter}{\numberline {2}Grammar}{11}%
-\contentsline {section}{\numberline {2.1}Notation}{12}%
-\contentsline {section}{\numberline {2.2}Common Lexical Units}{12}%
-\contentsline {section}{\numberline {2.3}Literals}{12}%
-\contentsline {subsection}{\numberline {2.3.1}Boolean Literals}{12}%
-\contentsline {subsection}{\numberline {2.3.2}Numerical Literals}{12}%
-\contentsline {subsection}{\numberline {2.3.3}Sets and Enumerables}{13}%
-\contentsline {subsection}{\numberline {2.3.4}Sequences}{13}%
-\contentsline {subsection}{\numberline {2.3.5}Matrices and Vectors}{13}%
-\contentsline {subsection}{\numberline {2.3.6}General Literal Grammar}{13}%
-\contentsline {section}{\numberline {2.4}Operators}{13}%
-\contentsline {subsection}{\numberline {2.4.1}Binary Operators}{13}%
-\contentsline {subsection}{\numberline {2.4.2}Unary Operators}{14}%
-\contentsline {section}{\numberline {2.5}Variables and Expressions}{14}%
-\contentsline {section}{\numberline {2.6}Statements}{14}%
-\contentsline {section}{\numberline {2.7}General Program Grammar}{15}%
-\contentsline {chapter}{\numberline {3}Fluxion's Type System}{17}%
-\contentsline {section}{\numberline {3.1}An Overview of the Fluxion's Type System}{18}%
-\contentsline {subsection}{\numberline {3.1.1}Unbound Variable}{18}%
-\contentsline {subsection}{\numberline {3.1.2}Associated Grammar}{18}%
-\contentsline {section}{\numberline {3.2}Booleans}{18}%
-\contentsline {section}{\numberline {3.3}Numbers}{18}%
-\contentsline {subsection}{\numberline {3.3.1}Integers}{19}%
-\contentsline {subsection}{\numberline {3.3.2}Decimal}{19}%
-\contentsline {subsection}{\numberline {3.3.3}Imaginary numbers}{19}%
-\contentsline {subsection}{\numberline {3.3.4}Reserved Numerals}{20}%
-\contentsline {subsubsection}{Irrational Numerals}{20}%
-\contentsline {subsubsection}{Cardinality of Infinite Sets}{20}%
-\contentsline {section}{\numberline {3.4}Matrices}{20}%
-\contentsline {subsection}{\numberline {3.4.1}Vectors}{21}%
-\contentsline {section}{\numberline {3.5}Sets}{21}%
-\contentsline {subsection}{\numberline {3.5.1}Enumerables}{21}%
-\contentsline {subsection}{\numberline {3.5.2}Predefined Sets and Enumerables}{21}%
-\contentsline {subsubsection}{Number Sets}{21}%
-\contentsline {section}{\numberline {3.6}Sequences}{22}%
-\contentsline {chapter}{\numberline {4}Operations}{23}%
-\contentsline {section}{\numberline {4.1}Operator Semantics}{24}%
-\contentsline {section}{\numberline {4.2}Error Literals}{25}%
-\contentsline {section}{\numberline {4.3}Code Precedence}{25}%
-\contentsline {section}{\numberline {4.4}Homogeneous Operations}{26}%
-\contentsline {subsection}{\numberline {4.4.1}Numerical Operations}{26}%
-\contentsline {subsubsection}{Common Operations}{26}%
-\contentsline {subsubsection}{Operations Exclusive to Integers}{27}%
-\contentsline {subsubsection}{Operations Exclusive to Imaginals}{28}%
-\contentsline {subsection}{\numberline {4.4.2}Matrix Operations}{28}%
-\contentsline {subsubsection}{Common Operations}{28}%
-\contentsline {subsubsection}{Operations Exclusive to Vectors}{28}%
-\contentsline {subsection}{\numberline {4.4.3}Set Operations}{28}%
-\contentsline {subsection}{\numberline {4.4.4}Sequence Operations}{28}%
-\contentsline {section}{\numberline {4.5}Heterogenous Operations}{29}%
-\contentsline {subsection}{\numberline {4.5.1}Containment operator \texttt {in}}{29}%
-\contentsline {subsection}{\numberline {4.5.2}Scalar Multiplication Operator \texttt {*}}{29}%
-\contentsline {section}{\numberline {4.6}Boolean Operations}{29}%
-\contentsline {subsection}{\numberline {4.6.1}Pure Boolean Operators}{29}%
-\contentsline {subsection}{\numberline {4.6.2}Open Comperasion Operators}{30}%
-\contentsline {subsection}{\numberline {4.6.3}Closed Comperasion Operators}{30}%
-\contentsline {chapter}{\numberline {5}Variables}{33}%
-\contentsline {section}{\numberline {5.1}Pure Variables}{34}%
-\contentsline {section}{\numberline {5.2}Functions}{34}%
-\contentsline {subsection}{\numberline {5.2.1}Partial Functions}{35}%
-\contentsline {subsection}{\numberline {5.2.2}Function Domains}{35}%
-\contentsline {subsection}{\numberline {5.2.3}Unary Function Inverter Operation \texttt {\textbackslash }}{35}%
-\contentsline {subsection}{\numberline {5.2.4}Binary Convergence Operator \texttt {->}}{35}%
-\contentsline {section}{\numberline {5.3}Expression Evaluation}{36}%
-\contentsline {subsection}{\numberline {5.3.1}Name Resolution}{36}%
-\contentsline {section}{\numberline {5.4}Macros}{36}%
-\contentsline {section}{\numberline {5.5}Built-in Functions}{36}%
-\contentsline {chapter}{\numberline {6}Reductions}{39}%
-\contentsline {section}{\numberline {6.1}Reductions on Simple Operations}{40}%
-\contentsline {section}{\numberline {6.2}Reductions on Functions}{40}%
-\contentsline {section}{\numberline {6.3}Reductions on Logarithmic Functions}{40}%
-\contentsline {section}{\numberline {6.4}Reductions on Trigonometric Functions}{41}%
-\contentsline {section}{\numberline {6.5}Reduction on Inverse Trigonometric Functions}{42}%
-\contentsline {section}{\numberline {6.6}Reductions on Gamma Function}{42}%
-\contentsline {section}{\numberline {6.7}Reductions on Sum and Product}{42}%
-\contentsline {section}{\numberline {6.8}Reductions on Integrals}{42}%
-\contentsline {section}{\numberline {6.9}Reductions on Matrices}{42}%
-\contentsline {section}{\numberline {6.10}Reductions on Sets}{42}%
-\contentsline {chapter}{\numberline {7}Mathematical Proofs and Functions}{43}%
-\contentsline {section}{\numberline {7.1}Exponentiation by Complex Numerals}{43}%
+\contentsline {chapter}{Introduction}{v}%
+\contentsline {section}{\numberline {0.1}A Defence of Fluxion}{vi}%
+\contentsline {subsection}{\numberline {0.1.1}Fluxion is not a Programming Language}{vii}%
+\contentsline {subsection}{\numberline {0.1.2}the Name Fluxion}{vii}%
+\contentsline {section}{\numberline {0.2}Contents of the Specification}{vii}%
+\contentsline {part}{I\hspace {1em}Fluxion Core \\ \large {Fundamental Features of Fluxion}}{1}%
+\contentsline {chapter}{\numberline {1}Grammar}{3}%
+\contentsline {section}{\numberline {1.1}Notation}{4}%
+\contentsline {section}{\numberline {1.2}Common Lexical Units}{4}%
+\contentsline {section}{\numberline {1.3}Literals}{4}%
+\contentsline {subsection}{\numberline {1.3.1}Boolean Literals}{4}%
+\contentsline {subsection}{\numberline {1.3.2}Numerical Literals}{4}%
+\contentsline {subsection}{\numberline {1.3.3}Sets and Enumerables}{5}%
+\contentsline {subsection}{\numberline {1.3.4}Sequences}{5}%
+\contentsline {subsection}{\numberline {1.3.5}Matrices and Vectors}{5}%
+\contentsline {subsection}{\numberline {1.3.6}General Literal Grammar}{5}%
+\contentsline {section}{\numberline {1.4}Operators}{5}%
+\contentsline {subsection}{\numberline {1.4.1}Binary Operators}{5}%
+\contentsline {subsection}{\numberline {1.4.2}Unary Operators}{6}%
+\contentsline {section}{\numberline {1.5}Variables and Expressions}{6}%
+\contentsline {section}{\numberline {1.6}Statements}{6}%
+\contentsline {section}{\numberline {1.7}General Program Grammar}{7}%
+\contentsline {chapter}{\numberline {2}Fluxion's Type System}{9}%
+\contentsline {section}{\numberline {2.1}An Overview of the Fluxion's Type System}{10}%
+\contentsline {subsection}{\numberline {2.1.1}Unbound Variable}{10}%
+\contentsline {subsection}{\numberline {2.1.2}Associated Grammar}{10}%
+\contentsline {section}{\numberline {2.2}Booleans}{10}%
+\contentsline {section}{\numberline {2.3}Numbers}{10}%
+\contentsline {subsection}{\numberline {2.3.1}Integers}{11}%
+\contentsline {subsection}{\numberline {2.3.2}Decimal}{11}%
+\contentsline {subsection}{\numberline {2.3.3}Imaginary numbers}{11}%
+\contentsline {subsection}{\numberline {2.3.4}Reserved Numerals}{12}%
+\contentsline {subsubsection}{Irrational Numerals}{12}%
+\contentsline {subsubsection}{Cardinality of Infinite Sets}{12}%
+\contentsline {section}{\numberline {2.4}Matrices}{12}%
+\contentsline {subsection}{\numberline {2.4.1}Vectors}{13}%
+\contentsline {section}{\numberline {2.5}Sets}{13}%
+\contentsline {subsection}{\numberline {2.5.1}Enumerables}{13}%
+\contentsline {subsection}{\numberline {2.5.2}Predefined Sets and Enumerables}{13}%
+\contentsline {subsubsection}{Number Sets}{13}%
+\contentsline {section}{\numberline {2.6}Sequences}{14}%
+\contentsline {chapter}{\numberline {3}Operations}{15}%
+\contentsline {section}{\numberline {3.1}Operator Semantics}{16}%
+\contentsline {section}{\numberline {3.2}Error Literals}{17}%
+\contentsline {section}{\numberline {3.3}Code Precedence}{17}%
+\contentsline {section}{\numberline {3.4}Homogeneous Operations}{18}%
+\contentsline {subsection}{\numberline {3.4.1}Numerical Operations}{18}%
+\contentsline {subsubsection}{Common Operations}{18}%
+\contentsline {subsubsection}{Operations Exclusive to Integers}{19}%
+\contentsline {subsubsection}{Operations Exclusive to Imaginals}{20}%
+\contentsline {subsection}{\numberline {3.4.2}Matrix Operations}{20}%
+\contentsline {subsubsection}{Common Operations}{20}%
+\contentsline {subsubsection}{Operations Exclusive to Vectors}{20}%
+\contentsline {subsection}{\numberline {3.4.3}Set Operations}{20}%
+\contentsline {subsection}{\numberline {3.4.4}Sequence Operations}{20}%
+\contentsline {section}{\numberline {3.5}Heterogenous Operations}{21}%
+\contentsline {subsection}{\numberline {3.5.1}Containment operator \texttt {in}}{21}%
+\contentsline {subsection}{\numberline {3.5.2}Scalar Multiplication Operator \texttt {*}}{21}%
+\contentsline {section}{\numberline {3.6}Boolean Operations}{21}%
+\contentsline {subsection}{\numberline {3.6.1}Pure Boolean Operators}{21}%
+\contentsline {subsection}{\numberline {3.6.2}Open Comperasion Operators}{22}%
+\contentsline {subsection}{\numberline {3.6.3}Closed Comperasion Operators}{22}%
+\contentsline {chapter}{\numberline {4}Variables}{25}%
+\contentsline {section}{\numberline {4.1}Pure Variables}{26}%
+\contentsline {section}{\numberline {4.2}Functions}{26}%
+\contentsline {subsection}{\numberline {4.2.1}Partial Functions}{27}%
+\contentsline {subsection}{\numberline {4.2.2}Function Domains}{27}%
+\contentsline {subsection}{\numberline {4.2.3}Unary Function Inverter Operation \texttt {\textbackslash }}{27}%
+\contentsline {subsection}{\numberline {4.2.4}Binary Convergence Operator \texttt {->}}{27}%
+\contentsline {section}{\numberline {4.3}Expression Evaluation}{28}%
+\contentsline {subsection}{\numberline {4.3.1}Name Resolution}{28}%
+\contentsline {section}{\numberline {4.4}Macros}{28}%
+\contentsline {section}{\numberline {4.5}Built-in Functions}{28}%
+\contentsline {chapter}{\numberline {5}Transformations}{31}%
+\contentsline {section}{\numberline {5.1}Differentiation Transformation \texttt {dif}}{32}%
+\contentsline {subsection}{\numberline {5.1.1}Rules of Differentiation}{33}%
+\contentsline {subsubsection}{Simple Rules of Differentiation}{33}%
+\contentsline {subsubsection}{Differentiation of Functions in General}{33}%
+\contentsline {subsubsection}{Differentiation of Logarthmic Functions}{33}%
+\contentsline {subsubsection}{Differentiation of Trigonometric Functions}{34}%
+\contentsline {chapter}{\numberline {6}Reductions}{35}%
+\contentsline {section}{\numberline {6.1}Reductions on Simple Operations}{36}%
+\contentsline {section}{\numberline {6.2}Reductions on Functions}{36}%
+\contentsline {section}{\numberline {6.3}Reductions on Logarithmic Functions}{36}%
+\contentsline {section}{\numberline {6.4}Reductions on Trigonometric Functions}{37}%
+\contentsline {section}{\numberline {6.5}Reduction on Inverse Trigonometric Functions}{38}%
+\contentsline {section}{\numberline {6.6}Reductions on Gamma Function}{38}%
+\contentsline {section}{\numberline {6.7}Reductions on Sum and Product}{38}%
+\contentsline {section}{\numberline {6.8}Reductions on Integrals}{38}%
+\contentsline {section}{\numberline {6.9}Reductions on Matrices}{38}%
+\contentsline {section}{\numberline {6.10}Reductions on Sets}{38}%
+\contentsline {chapter}{\numberline {A}Mathematical Proofs and Functions}{39}%
+\contentsline {section}{\numberline {A.1}Exponentiation by Complex Numerals}{39}%

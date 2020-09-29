@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.27)  28 SEP 2020 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.27)  30 SEP 2020 02:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -230,20 +230,20 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 (./syntaxandsemantics.aux)
 \openout1 = `syntaxandsemantics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 \c@lstlisting=\count272
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -268,13 +268,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -285,220 +285,197 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-(./syntaxandsemantics.toc [3]
+(./syntaxandsemantics.toc [1
+
+]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-68.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 68.
+69.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 69.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 68.
+(Font)              for symbol `textbackslash' on input line 69.
 
-[4])
+[2])
 \tf@toc=\write3
 \openout3 = `syntaxandsemantics.toc'.
 
- [5] [6
+ [3] [4
 
-]
+] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+[7] [8] [1
+
+
+] [2]
 Chapter 1.
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-[9] [10]
-Chapter 2.
-[11
+[3
 
 ]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 8
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 9
 1.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
- [12]
-[13]
-Overfull \hbox (44.47687pt too wide) in paragraph at lines 199--200
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
+ [4] [5]
+Overfull \hbox (44.47687pt too wide) in paragraph at lines 209--210
 [][]\OT1/cmr/m/n/10.95 , [], ([] \OMS/cmtt/m/n/10.95 j [] j [] j []
  []
 
 
-Overfull \hbox (72.24577pt too wide) in paragraph at lines 207--208
+Overfull \hbox (72.24577pt too wide) in paragraph at lines 217--218
 []\OT1/cmr/m/n/10.95 [[]], ([] \OMS/cmtt/m/n/10.95 j []\OT1/cmr/m/n/10.95 ) [, 
 [] []] 
  []
 
-[14] [15] [16
+[6] [7] [8
 
 ]
-Chapter 3.
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Chapter 2.
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
 
  []
 
 
-Overfull \hbox (7.38823pt too wide) in paragraph at lines 262--263
+Overfull \hbox (7.38823pt too wide) in paragraph at lines 272--273
 []\OT1/cmr/m/n/10.95 Fluxion has five main types. \OT1/cmtt/m/n/10.95 boolean\O
 T1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 number\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n
 /10.95 set\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 matrix \OT1/cmr/m/n/10.95 an
 d \OT1/cmtt/m/n/10.95 sequence\OT1/cmr/m/n/10.95 .
  []
 
-[18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
-[20] [21]
+[12] [13]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 4
-14.
+24.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 414.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 424.
 
-Overfull \hbox (1.35376pt too wide) in paragraph at lines 414--415
+Overfull \hbox (1.35376pt too wide) in paragraph at lines 424--425
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[22]
-Chapter 4.
-[23
+[14]
+Chapter 3.
+[15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 440--441
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 434.
+               Default added (so using `tbp') on input line 444.
 
 
-Overfull \hbox (0.49583pt too wide) in paragraph at lines 450--451
-[]\OT1/cmr/m/n/10.95 As can be seen in Ta-ble 4.1[], all Flux-ion op-er-a-tors 
+Overfull \hbox (0.49583pt too wide) in paragraph at lines 460--461
+[]\OT1/cmr/m/n/10.95 As can be seen in Ta-ble 3.1[], all Flux-ion op-er-a-tors 
 ei-ther take one operand,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
 
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 463.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 473.
 
-Overfull \hbox (40.77417pt too wide) in paragraph at lines 470--471
+Overfull \hbox (40.77417pt too wide) in paragraph at lines 480--481
 [][][][][][][][][][][][][][][][][][][] 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 527--528
-
- []
-
-
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
@@ -508,95 +485,115 @@ Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
+
+ []
+
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 
  []
 
-[28]
+
+Underfull \hbox (badness 10000) in paragraph at lines 582--583
+
+ []
+
+[20]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 580.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 590.
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--607
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
-
- []
-
-[29]
 Underfull \hbox (badness 10000) in paragraph at lines 616--617
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 628--629
 
  []
 
-[30] [31] [32
+
+Underfull \hbox (badness 10000) in paragraph at lines 643--644
+
+ []
+
+[22] [23] [24
 
 ]
-Chapter 5.
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 669--670
+Chapter 4.
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 679--680
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 699--700
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 717--718
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
  []
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/bx/n' undefined
 (Font)              using `OMS/cmtt/m/n' instead
-(Font)              for symbol `textbackslash' on input line 719.
+(Font)              for symbol `textbackslash' on input line 729.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 723--724
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
 
  []
 
@@ -605,44 +602,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 733--734
 
  []
 
-[35]
 
-LaTeX Warning: Reference `utifunctions' on page 36 undefined on input line 758.
+Underfull \hbox (badness 10000) in paragraph at lines 743--744
+
+ []
+
+[27]
+
+LaTeX Warning: Reference `utifunctions' on page 28 undefined on input line 768.
 
 
 
-Overfull \hbox (154.82407pt too wide) in paragraph at lines 762--800
+Overfull \hbox (77.65567pt too wide) in paragraph at lines 772--806
 [][] 
  []
 
-[36] [37] [38
+[28] [29] [30
 
 ]
-Chapter 6.
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 812--813
+Chapter 5.
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 814--815
-
- []
-
-[40]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 839.
+[32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41]
-[42]
-Chapter 7.
+ [33]
+[34]
+Chapter 6.
+[35
 
-Overfull \hbox (49.32372pt too wide) detected at line 929
+]
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 917--918
+
+ []
+
+[36]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+[38]
+Appendix A.
+
+Overfull \hbox (49.32372pt too wide) detected at line 1034
 []
  []
 
-(./syntaxandsemantics.bbl [43
+(./syntaxandsemantics.bbl [39
 
-] [44
+] [40
 
 ]
 Underfull \hbox (badness 7740) in paragraph at lines 19--23
@@ -656,7 +673,7 @@ Underfull \hbox (badness 2384) in paragraph at lines 19--23
 -07-
  []
 
-) [45] (./syntaxandsemantics.aux)
+) [41] (./syntaxandsemantics.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -665,11 +682,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5132 strings out of 480906
- 67862 string characters out of 5908268
- 332305 words of memory out of 5000000
- 20658 multiletter control sequences out of 15000+600000
- 547300 words of font info for 75 fonts, out of 8000000 for 9000
+ 5142 strings out of 480906
+ 67984 string characters out of 5908268
+ 332298 words of memory out of 5000000
+ 20667 multiletter control sequences out of 15000+600000
+ 547638 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,14n,37p,818b,1611s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
@@ -684,17 +701,18 @@ al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
 ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on syntaxandsemantics.pdf (45 pages, 285727 bytes).
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on syntaxandsemantics.pdf (51 pages, 299534 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
+ 247 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

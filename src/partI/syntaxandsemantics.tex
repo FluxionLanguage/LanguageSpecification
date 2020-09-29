@@ -14,16 +14,23 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \author{Ege Özkan}
-\title{Fluxion Language Specification 0.1 \\ \large{Part I: Syntax \& Semantics}}
-
+\title{Fluxion Language Specification \\ \large{0.1}}
 \def\rot{\rotatebox}
 
 \begin{document}
 
+
+\newcommand{\diff}[2]{\ensuremath{\frac{\text{d}}{\text{d}#1} \left(#2\right)}}
+\newcommand{\sdif}[2]{\ensuremath{\frac{\text{d}#1}{\text{d}#2}}}
+\newcommand{\term}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\oftype}{\ensuremath{\in^\text{T}}}
 \maketitle
+
+\frontmatter
 
 \tableofcontents
 \newpage
+
 
 \chapter{Introduction}
 \vspace{1em}
@@ -67,6 +74,9 @@ Subsequent chapters of this specification will talk about different components o
 Next chapter contains the lexical structure of the language via Extended BNF, including the operators of the language, statements, expressions and literals. Third hapter contains these basic literal expressions, as well as the type system of Fluxion. Fourth chapter contains the operations on these literals. Chapter five discusses assignment and function definitions as well as built-in functions of the language. Chapter six discusses reductions, chapter seven discusses differentiation of various algabraic data types and finally, chapter eight discussess the various statements, such as \code{introduce} and \code{in} the language has. \\
 
 This is the first part of a two parter language specification. As such, the standard library facilities will be introduced in the second part of this specification. Implementation of the standard library is necessary for a complete implementation of the Fluxion language, however, a minimal implementation may leave it out.
+
+\mainmatter
+\part{Fluxion Core \\ \large{Fundamental Features of Fluxion}}
 
 \chapter{Grammar}
 \vspace{1em}
@@ -790,15 +800,108 @@ Function & Equivalent & Domain \\
 \code{ceil(num)} & $\lceil x \rceil$ & $\mathbb{R} \rightarrow \mathbb{Z}$ \\
 \code{modulo(base, num)} & $c := y \mod_x$ & $\forall y \in \mathbb{R}, x \in \mathbb{Z} \rightarrow \mathbb{C}$ \\
 \code{even(num)} & $x = 0\mod_2$ & $\mathbb{Z} \rightarrow \left\lbrace \texttt{True}, \texttt{False} \right\rbrace$ \\
-\code{maclaurin(function)} & Maclaurin expansion. & -- \\
-\code{taylor(function)} & Taylor expansion. & -- \\
 \code{gcd(x, y)} & $\gcd(x, y)$ & $\mathbb{Z^+} \rightarrow \mathbb{Z^+}$ \\
-\code{defInt(function, var, from, to)} & $\int_{z}^u x dy$ & -- \\
-\code{int(function, var)} & $\int x dy $ & -- \\
 \bottomrule
 \end{tabular}
 \caption{Builtin functions.}
 \end{table}
+
+
+\chapter{Transformations}
+
+\vspace{1em}
+\begin{quotation}
+This chapter discusses the concept of transformations, special functions that can act on functions and return functions with unbound variables, as well as providing a list of builtin transformations of the Fluxion language.
+\end{quotation}
+\newpage
+
+Transformations are special functions. They can only be assigned to other functions, since they evaluate to function definitions. Fluxion provides a variety of builtin transformations as can be seen in Table \ref{tab:transformations}.
+
+\begin{table}[httb]
+\label{tab:transformations}
+\begin{tabular}{ll}
+\toprule
+Transformation & Equivalent in Mathematics \\
+\midrule
+\code{diff(function, var)} & $\frac{\text{d}}{\text{d}y}x$ \\
+\code{gradient(function)} & $\nabla f(x)$ \\
+\code{taylor(function, value)} & Taylor expansion on value. \\
+\code{maclaurin(function)} & Maclaurin expansion. \\
+\code{defInt(function, var, from, to)} & $\int_{z}^u x dy$ \\
+\code{int(function, var)} & $\int x dy $ \\
+\bottomrule
+\end{tabular}
+\caption{A list of builtin transformations.}
+\end{table}
+
+The name transformation refeers to two facts, one is that these \textit{``functions"}, transform functions to other functions by transforming the internal representation of the functions themselves, and two; When viewed from a certain angle, differentiation is a linear transformation, and all of these functions are built upon differentiation.\\
+
+\section{Differentiation Transformation \code{dif}}
+
+Differentiation transformation is created by either using the \code{'} (the differentiation operator) on a function bound to a single variable (Otherwise evaluates to total derivative at that point.), or by using the \code{diff} function. \code{diff(function, variable)} takes the function to differentiate, and the variable to differentiate with respect to. Assume function \code{f} has a single variable (\code{x}) and function \code{g} has two, Table \ref{tab:differentiation} shows how the usage of these methods has equivalents in mathematics.
+
+\begin{table}[httb]
+\label{tab:differentiation}
+\begin{tabular}{ll}
+\toprule
+Usage & Equivalent in Mathematics \\
+\midrule
+\code{f'} & $\frac{\text{d}}{\text{d}x}f$ \\
+\code{g'} & Total derivative of $g$\\
+\code{f'(x)} & $\left(\frac{\text{d}}{\text{d}x}f \right)(x)$\\
+\code{k(z) := f'(z)} & $k(z) := \left(\frac{\text{d}}{\text{d}x}f \right)(z)$ \\
+\code{diff(f, z)} & $\frac{\text{d}}{\text{d}z}f$ \\
+\code{diff(f, x)} & $\frac{\text{d}}{\text{d}x}f$ \\
+\code{diff(g, y}) & $\frac{\partial}{\partial y}g$\\
+\bottomrule
+\end{tabular}
+\caption{Usage of differentiation transformation.}
+\end{table}
+
+Since this is a specification. Rules of differentiation the Fluxion standard comes with must also be listed. They will be listed in formal mathematical notation. Assume that any constant is etiher a Matrix or a Number unless an operation not supported by either is performed, or if specified explicitly.
+
+\subsection{Rules of Differentiation}
+
+\subsubsection{Simple Rules of Differentiation}
+
+\begin{align}
+\diff{x}{t + u} &\Rightarrow \sdif{t}{x} + \sdif{u}{x}\\
+\diff{x}{tu} &\Rightarrow \sdif{t}{x}u + \sdif{u}{x}t\\
+\diff{x}{u^n} &\Rightarrow nu^{n - 1}\sdif{u}{x}\\
+\diff{x}{\frac{1}{u}} &\Rightarrow -\frac{1}{u^2}\sdif{u}{x}\\
+\diff{x}{\frac{t}{u}} &\Rightarrow \frac{1}{u^2}\left(\sdif{t}{x} u - \sdif{u}{x}t\right)\\
+\diff{x}{u^t} &\Rightarrow u^t \left(\sdif{t}{x}\ln{u} + \sdif{u}{x} \frac{t}{\ln{u}}\right) 
+\end{align}
+
+\subsubsection{Differentiation of Functions in General}
+
+\begin{align}
+\diff{x}{f(g(x))} &\Rightarrow \sdif{g}{x} \times \sdif{f}{x}\term{g(x)}
+\end{align}
+
+\subsubsection{Differentiation of Logarthmic Functions}
+
+\begin{align}
+\diff{x}{\log_u{t}} &\Rightarrow \frac{1}{\ln^2u} \term{\sdif{t}{x} \frac{\ln u}{\ln t} - \sdif{u}{x}\frac{\ln t}{\ln u}}\\
+\diff{x}{\ln u} &\Rightarrow \sdif{u}{x} \frac{1}{\ln u}
+\end{align}
+
+
+\subsubsection{Differentiation of Trigonometric Functions}
+
+\begin{align}
+\diff{x}{\sin{u}} &\Rightarrow \sdif{u}{x} \cos{u}\\
+\diff{x}{\cos{u}} &\Rightarrow -\sdif{u}{x} \sin{u}\\
+\diff{x}{\tan{u}} &\Rightarrow \sdif{u}{x} \sec^2{u}\\
+\diff{x}{\cot{u}} &\Rightarrow -\sdif{u}{x} \csc^2{u}\\
+\diff{x}{\cot{u}} &\Rightarrow \sdif{u}{x} \tan{x} \sec{x}\\
+\diff{x}{\cot{u}} &\Rightarrow -\sdif{u}{x} \cot{x}\csc{x}
+\end{align}
+
+%%%%%%%%%%%%%%
+% REDUCTIONS %
+%%%%%%%%%%%%%%
+
 
 
 \chapter{Reductions}
@@ -913,6 +1016,8 @@ All variables must follow the domains of the functions.
 \end{eqnarray}
 
 
+\appendix
+
 \chapter{Mathematical Proofs and Functions}
 \section{Exponentiation by Complex Numerals}
 Let $w, z \in \mathbb{C}$ and $z = a + bi$. Evaluate $w^z$
@@ -927,8 +1032,6 @@ w^z & = e^{\ln|w^z|} & \\
 & = |w|^ae^{b\ln|w|i} & \text{Observe $e^{b\ln|w|i}$ is of form $e^{\theta i}$}\\
 & = |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right) & \text{(Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)}
 \end{align*}
-
-
 
 \bibliographystyle{plain}
 \bibliography{fluxion.bib}
