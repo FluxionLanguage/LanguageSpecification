@@ -22,11 +22,15 @@
 
 \newcommand{\diff}[2]{\ensuremath{\frac{\text{d}}{\text{d}#1} \left(#2\right)}}
 \newcommand{\sdif}[2]{\ensuremath{\frac{\text{d}#1}{\text{d}#2}}}
+\newcommand{\pdif}[2]{\ensuremath{\frac{\partial}{\partial #1} \left(#2\right)}}
+\newcommand{\spdif}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
 \newcommand{\term}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\oftype}{\ensuremath{\in^\text{T}}}
+\newcommand{\intx}[1]{\ensuremath{\int \left(#1\right) \text{d}x}}
+\frontmatter
 \maketitle
 
-\frontmatter
+
 
 \tableofcontents
 \newpage
@@ -807,6 +811,16 @@ Function & Equivalent & Domain \\
 \end{table}
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% TRANSFORMATIONS %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
 \chapter{Transformations}
 
 \vspace{1em}
@@ -836,7 +850,7 @@ Transformation & Equivalent in Mathematics \\
 
 The name transformation refeers to two facts, one is that these \textit{``functions"}, transform functions to other functions by transforming the internal representation of the functions themselves, and two; When viewed from a certain angle, differentiation is a linear transformation, and all of these functions are built upon differentiation.\\
 
-\section{Differentiation Transformation \code{dif}}
+\section{Differentiation Transformation}
 
 Differentiation transformation is created by either using the \code{'} (the differentiation operator) on a function bound to a single variable (Otherwise evaluates to total derivative at that point.), or by using the \code{diff} function. \code{diff(function, variable)} takes the function to differentiate, and the variable to differentiate with respect to. Assume function \code{f} has a single variable (\code{x}) and function \code{g} has two, Table \ref{tab:differentiation} shows how the usage of these methods has equivalents in mathematics.
 
@@ -897,6 +911,87 @@ Since this is a specification. Rules of differentiation the Fluxion standard com
 \diff{x}{\cot{u}} &\Rightarrow \sdif{u}{x} \tan{x} \sec{x}\\
 \diff{x}{\cot{u}} &\Rightarrow -\sdif{u}{x} \cot{x}\csc{x}
 \end{align}
+
+\subsubsection{Differentiation of Inverse Trigonometric Functions}
+
+\begin{align}
+\diff{x}{\sin^{-1}u} &\Rightarrow \sdif{u}{x} \frac{1}{\sqrt{1 - u^2}}\\
+\diff{x}{\cos^{-1}u} &\Rightarrow -\sdif{u}{x} \frac{1}{\sqrt{1 - u^2}}\\
+\diff{x}{\tan^{-1}u} &\Rightarrow \sdif{u}{x} \frac{1}{1 + x^2}\\
+\diff{x}{\cot^{-1}u} &\Rightarrow -\sdif{u}{x} \frac{1}{1 + x^2}\\
+\diff{x}{\sec^{-1}u} &\Rightarrow \sdif{u}{x} \frac{1}{|x| \sqrt{x^2 - 1}}\\
+\diff{x}{\csc^{-1}u} &\Rightarrow -\sdif{u}{x} \frac{1}{|x| \sqrt{x^2 - 1}}
+\end{align}
+
+\subsubsection{Differentiation of Integrals}
+
+\begin{equation}
+\diff{x}{\int_{u}^{v} f(x, t) \text{d}t} \Rightarrow f(x, v)\sdif{v}{x} - f(x, u) \sdif{u}{x} + \int_{u}^{v}  \spdif{f}{x} \text{d}t
+\end{equation}
+
+\section{The Gradient Transformation}
+The gradient is a special way to perform multiple differentiation translations at once that results in a vector to be created. Using the gradient operator on a function $f(a_0, a_1, \dots, a_n)$. will result in:
+
+\begin{align}
+\nabla f &\Rightarrow \begin{pmatrix}
+           \displaystyle\spdif{f}{a_1}\\[0.1em]\\
+           \displaystyle\spdif{f}{a_2} \\
+           \vdots \\
+           \displaystyle\spdif{f}{a_n}
+         \end{pmatrix}
+\end{align}
+
+\section{Taylor Transformation}
+
+Taylor Transformation returns the taylor series expansion of a function using \code{sum} and a countable \code{enumerable}. Taylor transformations has two rules depending on the arity of the function, Taylor transformation itself is represented via $T_f(x)$, this notation reads as Taylor transformation of $f$ at point $x$.
+
+\begin{align}
+T_f(a) &\Rightarrow \sum_{n = 0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n\\
+T_f(a_1, a_2, \dots, a_d) &\Rightarrow \sum_{n_1, n_2, \dots, n_d = 0}^{\infty} \left[ \left[ \prod_{m = 1}^d (x_m - a_m)^{n_m} \right] \left[ \prod_{m=1}^d \frac{1}{n_d!} \right] \left[\left( \frac{\partial^{n_1 + \dots + n_d} f}{\partial x_1^{n_1} \dots \partial x_d^{n_d}} \right)(a_1, \dots, a_d) \right] \right]
+\end{align} 
+
+If the arity of the function $f$ is one with one argument $x$, equation 5.24 gives the Taylor Expension of the function, if the arity of the function $f$ is $d \geq 2$, with arguments $x_1, x_2, \dots, x_d$, then the equation 5.25 gives the taylor expansion of the equation at points $a_1, a_2, \dots, a_d$, such that $\forall i, x_i = a_i$.
+
+\section{Maclaurin Transformation}
+
+Maclaurin Transformation $M_f$ is a special version of the Taylor Transformation $T_f(a_1, a_2, \dots, a_d)$, such that $\forall i, a_i = 0$. This translates to:
+
+\begin{align}
+M_f &\Rightarrow \sum_{n = 0}^{\infty} \frac{f^{(n)}(0)x^n}{n!} \\
+M_f &\Rightarrow \sum_{n_1, n_2, \dots, n_d = 0}^{\infty} \left[ \left[ \prod_{m = 1}^d (x_m)^{n_m} \right] \left[ \prod_{m=1}^d \frac{1}{n_d!} \right] \left[\left( \frac{\partial^{n_1 + \dots + n_d} f}{\partial x_1^{n_1} \dots \partial x_d^{n_d}} \right)(0, \dots, 0) \right] \right]
+\end{align}
+
+\section{Integration Transformation}
+
+Integration is performed on a function using the \code{int} transformation. Indefinite version of which is sometimes called as the antiderivative, as it takes a function $f$ and returns another function $F$ whose derivative $F' = f$. However, this raises an issue, since $\forall c \in \mathbb{C}, \diff{x}{F(x) + c} = f(x)$ also. This $c$ is an indeterminate. For this reason, a special constant exists in Fluxion, \code{ic}.\\
+
+\code{ic} is treated as 0 for operations. \\
+
+\subsection{Definite Integration}
+
+Definite intagration is achieved via the \code{defInt()} transformation. \code{int(f, x, a, b)} is equivalent to \code{int(f, x)(b) - int(f, x)(a)} or, mathematically:
+
+\begin{equation}
+\int_a^b f(x) \text{d}x = \left( \int f(x) \text{d}x \right)(b) - \left( \int f(x) \text{d}x \right)(a)
+\end{equation}
+
+\subsection{$x$-Resolving}
+
+$x$-resolving is the process by which integrations are solved. Consider an integral of type:
+
+\begin{equation}
+\intx{\frac{1}{x}}
+\end{equation}
+
+To solve this integral, traditional approach is to subsitute $\ln|x| = u$, and then differentiating both sides with respect to x to find $\frac{1}{x} \text{d}x = \text{d}u$, which is the inside of the integral, hence the solution is found.\\
+
+$x$-resolving is finding an expression, $u$, such that, the entire inside of the integral expression can be subsituted for $d{u}$, when this constraint is fulfilled, the $u + c$ is said to be the solution of the integral.\\
+
+$x$-resolving is done, simply by checking if the inside of the integral matches any of differential transformation results, and determining the $u$. Moreover, while resolving for $x$, once can divide integral sums, or unify them.
+
+\begin{equation}
+\intx{u} + \intx{v} \Leftrightarrow \intx{u + v}
+\end{equation}
 
 %%%%%%%%%%%%%%
 % REDUCTIONS %
