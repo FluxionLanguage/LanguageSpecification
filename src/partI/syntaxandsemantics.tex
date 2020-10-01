@@ -27,6 +27,7 @@
 \newcommand{\term}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\oftype}{\ensuremath{\in^\text{T}}}
 \newcommand{\intx}[1]{\ensuremath{\int \left(#1\right) \text{d}x}}
+\newcommand{\stirling}[2]{\ensuremath{\begin{Bmatrix}#1 \\ #2\end{Bmatrix}}}
 \frontmatter
 \maketitle
 
@@ -975,24 +976,56 @@ Definite intagration is achieved via the \code{defInt()} transformation. \code{i
 \int_a^b f(x) \text{d}x = \left( \int f(x) \text{d}x \right)(b) - \left( \int f(x) \text{d}x \right)(a)
 \end{equation}
 
-\subsection{$x$-Resolving}
+\subsection{Solving an Integral}
 
-$x$-resolving is the process by which integrations are solved. Consider an integral of type:
-
-\begin{equation}
-\intx{\frac{1}{x}}
-\end{equation}
-
-To solve this integral, traditional approach is to subsitute $\ln|x| = u$, and then differentiating both sides with respect to x to find $\frac{1}{x} \text{d}x = \text{d}u$, which is the inside of the integral, hence the solution is found.\\
-
-$x$-resolving is finding an expression, $u$, such that, the entire inside of the integral expression can be subsituted for $d{u}$, when this constraint is fulfilled, the $u + c$ is said to be the solution of the integral.\\
-
-$x$-resolving is done, simply by checking if the inside of the integral matches any of differential transformation results, and determining the $u$. Moreover, while resolving for $x$, once can divide integral sums, or unify them.
+Integrals are solved in multiple parts. First, an integral must be converted to a list possible factorings, consider an integral:
 
 \begin{equation}
-\intx{u} + \intx{v} \Leftrightarrow \intx{u + v}
+R(x) = \intx{t + u + v}
 \end{equation}
 
+This integral can be factored into different permutations. These permutations create the permuation list for $R$, $P_R$:
+
+\begin{align}
+\begin{split}
+P_R =\Bigg\lbrace &\intx{t + u + v}, \intx{t + u} + \intx{v},\\
+&\intx{t + v} + \intx{u}, \intx{u + v} + \intx{t},\\
+&\intx{t} + \intx{u} + \intx{v} \Bigg\rbrace
+\end{split}
+\end{align}
+
+Then, each $r \in P_R$, is ran through the solution algorithm, the steps of there are three steps of the solution algorithm, if one step fails, the other is tried, each step is ran first without reducing the expression, and then after reducing the expression. If all else fails, the integral is left as a closed form.:
+
+\begin{enumerate}
+\item Try to match the integral against one of the common forms.
+\item Try to run the Leibnitz's Method of Integration for Trigonometric Functions.
+\item Try to run the Risch algorithm on the integral.
+\end{enumerate}
+
+When all of this is done, sort the integrals in the list, first the open forms, then the closed forms. Then, sort each group with respect to their simpleness. The simpleness of an integral is determined as one over the sum of costs of that integral's elements. Costs of common functions are given in Table \ref{tab:costs}.
+
+\begin{table}[httb]
+\label{tab:costs}
+\begin{tabular}{ll}
+\toprule
+Function Type & Cost ($c$) \\
+\midrule
+$\forall m \oftype \mathbf{N}, m$ & 1\\
+$\forall m \oftype \mathbf{N}, mx$ & 10\\
+$\forall m \oftype \mathbf{N}, mx^n$ &  50\\
+$e^u$ & 100 \\
+$a^u$ & 150 \\
+Functions & 200 \\
+Trigonometric Functions & 250 \\
+Inverse Trigonometric Functions & 300 \\
+$u^t$ & 350 \\
+Other & 500\\
+\bottomrule
+\end{tabular}
+\caption{A list of costs.}
+\end{table}
+
+\
 %%%%%%%%%%%%%%
 % REDUCTIONS %
 %%%%%%%%%%%%%%
@@ -1128,6 +1161,19 @@ w^z & = e^{\ln|w^z|} & \\
 & = |w|^a\left(\cos\left(b\ln|w|\right) + i \sin\left(b\ln|w|\right) \right) & \text{(Using Euler's Formula, $e^{i\theta} = \cos\theta + i\sin\theta$)}
 \end{align*}
 
+\chapter{Algorithm Complexities and Pitfalls}
+
+\section{Complexity of the Integration Algorithm}
+
+Let $R$ be an integral $R = \intx{u_1, u_2, u_3, \cdots, u_n}$. The partition algorithm starts by partitioning the integral to subintegrals, for instance $\intx{u + v}$ can be partitioned as $\intx{u} + \intx{v}$ or $\intx{u + v}$ (original integral is also a valid partititon).\\
+
+$P_R$, consists of sets, consisting of each subintegral in a partition. These are evaluated seperately and summed, and is transferred to $S_R$, this makes the $S_R$ a set consisting of many integrals that are evaluated by Fluxion, $S_R$ is then sorted twice, first by wheter or not integral is actually solved or not (closed form) and unsolved integrals are pushed to the back of the list, whereas the solved ones are at the front, finally, these integrals are sorted among their own group in increasing order by their simpleness, this way, the first element of the $S_R$ is the simplest solution to an integral.\\
+
+The question is, how many subintegrals will $P_R$ consist of among its many subsets? This is calculated by reframing the question of partitions, what is done here is, placing at least 0 and at most $n-1$ plus signs among $n$ terms in the original integral, the terms can be reordered, however, once a plus sign is placed, the order of the groups does not matter, therefore the amount of total subintegrals $n_I$:
+
+\begin{align}
+n_I = n! \sum_{m = 0}^{n - 1} C(n - 1, m)
+\end{align}
 \bibliographystyle{plain}
 \bibliography{fluxion.bib}
 
