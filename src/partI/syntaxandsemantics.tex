@@ -27,7 +27,7 @@
 \newcommand{\term}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\oftype}{\ensuremath{\in^\text{T}}}
 \newcommand{\intx}[1]{\ensuremath{\int \left(#1\right) \text{d}x}}
-\newcommand{\stirling}[2]{\ensuremath{\begin{Bmatrix}#1 \\ #2\end{Bmatrix}}}
+\newcommand{\iscons}{\ensuremath{\oftype \mathbf{C}}}
 \frontmatter
 \maketitle
 
@@ -44,7 +44,7 @@ This chapter includes the design philasophy of and concepts behind the Fluxion L
 \end{quotation}
 
 \newpage
-\section{A Defence of Fluxion}
+\section*{A Defence of Fluxion}
 
 First thing one has to understand when it comes to language is its usefulness. As the readers may ask, \textit{why} should Fluxion exist? Don't we already have many scientific programming langauges like Python or Julia?\\
 
@@ -64,15 +64,15 @@ Third aim of the Fluxion's \textit{design} is for it to be extendable. Using the
 
 Fourth and final aim of the Fluxion is to be a free and open source alternative to the already established systems that are not as readilly as accessible or perhaps extendable as the Fluxion language itself.
 
-\subsection{Fluxion is not a Programming Language}
+\subsection*{Fluxion is not a Programming Language}
 
 Fluxion is not a programming language. It is a symbolic computation language. However, this specification will refeer to the language as \textit{the Fluxion Language} for keeping things short.
 
-\subsection{the Name Fluxion}
+\subsection*{the Name Fluxion}
 
 Fluxion was the original name given to the instantenous rate of change of time sensitive function (or a Fluent Quantity, a \textit{Fluent}) by Sir Isaac Newton\cite{fluxionname}. In essance, Fluxion is an obscure term for derivatives\cite{collins}. Given that Fluxion arised from a Clojure program that was made to take derivatives, I felt it is a good name as any to give it.
 
-\section{Contents of the Specification}
+\section*{Contents of the Specification}
 
 Subsequent chapters of this specification will talk about different components of Fluxion. Each chapter will talk about a component, its syntax, semantics and behaviour. Syntaxes of these components will be expressed via the Extended Backus-Naur Form\cite{ISO14977} with very minor augmentations. \\
 
@@ -968,14 +968,6 @@ Integration is performed on a function using the \code{int} transformation. Inde
 
 \code{ic} is treated as 0 for operations. \\
 
-\subsection{Definite Integration}
-
-Definite intagration is achieved via the \code{defInt()} transformation. \code{int(f, x, a, b)} is equivalent to \code{int(f, x)(b) - int(f, x)(a)} or, mathematically:
-
-\begin{equation}
-\int_a^b f(x) \text{d}x = \left( \int f(x) \text{d}x \right)(b) - \left( \int f(x) \text{d}x \right)(a)
-\end{equation}
-
 \subsection{Solving an Integral}
 
 Integrals are solved in multiple parts. First, an integral must be converted to a list possible factorings, consider an integral:
@@ -998,7 +990,7 @@ Then, each $r \in P_R$, is ran through the solution algorithm, the steps of ther
 
 \begin{enumerate}
 \item Try to match the integral against one of the common forms.
-\item Try to run the Leibnitz's Method of Integration for Trigonometric Functions.
+\item Try to run the Euler's Formuler for the Integration of Trigonometric Functions.
 \item Try to run the Risch algorithm on the integral.
 \end{enumerate}
 
@@ -1025,11 +1017,59 @@ Other & 500\\
 \caption{A list of costs.}
 \end{table}
 
-\
+
+\subsubsection{Integral Reductions}
+
+Integral Reductions that are performed within the expressions inside the intregral are usual reductions in the Chapter 6, with the addition of the following special reduction:
+
+\begin{align}
+\intx{m\lambda} &\Rightarrow m \intx{\lambda} & \term{m \iscons \land \spdif{\lambda}{x} \neq 0}
+\end{align}
+
+Reductions that include the integral expression must be done after the integral expression is resolved.
+
+\subsubsection{Common Forms}
+
+When an integral expression matches to the expressions of the form in the left hand side of the arrow, its integral is the right hand side of the arrow.
+
+\begin{align}
+\text{Integral } (F) & \Rightarrow \text{Function } (f) & \text{Condition} \\
+\intx{x^m} &\Rightarrow \frac{x^{m + 1}}{m + 1} + c & \term{m \oftype \mathbf{C}} \\
+\intx{\frac{1}{x^m}} &\Rightarrow \frac{1 - m}{x^{m - 1}} &\term{m > 1}\\
+\intx{\frac{1}{x}} &\Rightarrow \ln|x| + c\\
+\intx{m^x} &\Rightarrow \frac{m^x}{\ln|m|} + c & \term{m \oftype \mathbf{C}}\\
+\intx{m} &\Rightarrow mx + c &\term{m \iscons} 
+\end{align}
+
+\subsection{Integration with Euler's Formula}
+
+This method is applied if and only if all functions are purely consisting of trigonometric functions. Once it is ensured all functions inside the integral are trigonometric, then, the rules in Equation 5.37 is used to convert all trigonometric functions, following this operations between them are evaluated and after the integration, they are converted back to their trigonometric equivalents.
+
+\begin{equation}
+\begin{split}
+\text{Original Form} & \Rightarrow \text{ Converted}\\
+\cos{u} &\Rightarrow \frac{e^{iu} + e^{-iu}}{2}\\
+\sin{u} &\Rightarrow \frac{e^{iu} - e^{-iu}}{2i}\\
+\tan{u} &\Rightarrow -i \frac{e^{iu} - e^{-iu}}{e^{iu} + e^{-iu}}\\
+\cot{u} &\Rightarrow i \frac{e^{iu} + e^{-iu}}{e^{iu} - e^{-iu}}\\
+\sec{u} &\Rightarrow \frac{2}{e^{iu} + e^{-iu}}\\
+\csc{u} &\Rightarrow \frac{2i}{e^{iu} - e^{-iu}}
+\end{split}
+\end{equation}
+
+\subsection{Risch's Algorithm}
+
+Risch's Algorithm has never been implemented in its entirety. Fluxion's fullest version should attempt to implement this algorithm. Minimalistic implementations are free to actually skip this step.\\
+
+When it comes to actually implementing the Risch's Algorithm, there are multiple algorithms that are put forward by different computer scientists, one of the most prominent, late Manuel Bronstein, presented a tutorial outlining an implementation of the Risch's Algorithm\cite{bronstein}. This tutorial may serve a good basis for any implementation of the Fluxion standard.
+
+\section{Definite Integration}
+
+Definite integrations work differently then indefinete ones, since it is easier to implement them. Fluxion expects any integral to evaluate to a value or \code{Indeterminate}.
+
 %%%%%%%%%%%%%%
 % REDUCTIONS %
 %%%%%%%%%%%%%%
-
 
 
 \chapter{Reductions}
@@ -1144,6 +1184,62 @@ All variables must follow the domains of the functions.
 \end{eqnarray}
 
 
+
+%%%%%%%%%%%%%%%%%%
+%%% STATEMENTS %%%
+%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{Statements}
+\vspace{1em}
+\begin{quotation}
+This chapter includes the statements of the Fluxion language.
+\end{quotation}
+\newpage
+
+
+Statements modify scope in Fluxion. They do not evaluate to any values, which differs them from expressions. Statements generally use keywords, as shown in the table \ref{tab:statements}
+
+\begin{table}[httb]
+\label{tab:statements}
+\begin{tabular}{ll}
+\toprule
+Keyword & Explanation \\
+\midrule
+\code{introduce} & Introduce variables from other contexts.\\
+\code{export} & Make variables introducable to other files.\\
+\code{?} & Solve the expression, and assign unbound variabes.\\
+\bottomrule
+\end{tabular}
+\caption{A list of statement keywords.}
+\end{table}
+
+Finally, the last statement, the \textit{print} of Fluxion, does not have a keyword. When an expression is given on a line, but is not assigned to any variable, the value is printed.
+
+\section{Introducing Context with \code{introduce}}
+
+the \code{introduce} keyword, followed by a file name (but without its extension) is used to add new functions and variables to a scope from another file, usually called a context.\\
+
+When introduced, public variables from the context can be accessed using the \code{::} scope operator. For instance, the \code{Calculus} context in the standard library contains the \code{maximum} function that returns the $x$ value of a single arity function in its maximum point, can be accessed for the $f$ function thusly:
+
+\begin{lstlisting}
+introduce Calculus
+Calculus::maximum(f(x))
+\end{lstlisting}
+
+The \code{introduce} keyword can also used with extension libraries, for instance, some standard library modules are not written in Fluxion, but on their implementation language, even then, they are still reachable. This is becuase the \code{introduce} keyword first looks at the immediate directory of the script file, and then looks at a designated directory of the Fluxion installation, the exact methodology of this system is dependent on the implementation, and may entirelly be left out.
+
+\section{Adding to Contexts with \code{export}}
+
+When an \code{export} keyword is used immediately before a variable, it makes the said variable a public variable, thus accessible via the \code{introduce} keyword.
+
+\section{Solve Equations with \code{?}}
+
+The \code{?} keyword can be used to make Fluxion solve equations. In its most current form, the solve only covers elemental functions.
+
+\part{the Fluxion Standard Library}
+
 \appendix
 
 \chapter{Mathematical Proofs and Functions}
@@ -1174,6 +1270,8 @@ The question is, how many subintegrals will $P_R$ consist of among its many subs
 \begin{align}
 n_I = n! \sum_{m = 0}^{n - 1} C(n - 1, m)
 \end{align}
+
+This also puts a limit on the terms an integral can have for most systems, 20, as the largest possible 64 bit integer is below $21!$.
 \bibliographystyle{plain}
 \bibliography{fluxion.bib}
 

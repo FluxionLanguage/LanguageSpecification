@@ -1,13 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{bronstein}
+Manuel Bronstein.
+\newblock Symbolic integration tutorial, 1998.
+
 \bibitem{collins}
 Collins~English Dictionary.
 \newblock fluxion.
 
 \bibitem{ISO14977}
-{Information technology - Syntactic metalanguage - Extended BNF}.
-\newblock Standard, International Organization for Standardization, Geneva, CH,
-  December 1996.
+International~Organization for Standardization.
+\newblock {Information technology - Syntactic metalanguage - Extended BNF}.
+\newblock Standard, Geneva, CH, December 1996.
 
 \bibitem{fluxionname}
 Isaac Newton.
