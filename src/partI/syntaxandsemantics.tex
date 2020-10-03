@@ -3,6 +3,7 @@
 \documentclass[11pt,a4paper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{multirow}
+\usepackage{qtree}
 \usepackage{booktabs}
 \usepackage[english]{babel}
 \usepackage{listings}
@@ -79,6 +80,14 @@ Subsequent chapters of this specification will talk about different components o
 Next chapter contains the lexical structure of the language via Extended BNF, including the operators of the language, statements, expressions and literals. Third hapter contains these basic literal expressions, as well as the type system of Fluxion. Fourth chapter contains the operations on these literals. Chapter five discusses assignment and function definitions as well as built-in functions of the language. Chapter six discusses reductions, chapter seven discusses differentiation of various algabraic data types and finally, chapter eight discussess the various statements, such as \code{introduce} and \code{in} the language has. \\
 
 This is the first part of a two parter language specification. As such, the standard library facilities will be introduced in the second part of this specification. Implementation of the standard library is necessary for a complete implementation of the Fluxion language, however, a minimal implementation may leave it out.
+
+\section*{General Mathematical Notation}
+
+Although Extended Backus Naur Form is well defined, parts of this specification will have to relly on more esoteric notation most notably, in mathematical expressions, $u \oftype \mathbf{C}$ will be used, the $\oftype$ symbol is used to express that this variable is of a specific Fluxion data type, symbols for datatypes are:
+
+\Tree [.$\mathbf{F}$ [.$\mathbf{C}$  {Numbers \\$\mathbf{N}$} {Matrices \\$\mathbf{M}$} ] {Sets \\$\mathbf{S}$} {Sequences \\$\mathbf{R}$} ]
+
+The $\mathbf{C}$ super type has the ability to be multiplied with unbound variables such as $x$.
 
 \mainmatter
 \part{Fluxion Core \\ \large{Fundamental Features of Fluxion}}

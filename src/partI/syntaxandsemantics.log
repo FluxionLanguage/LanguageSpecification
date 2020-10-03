@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.27)  3 OCT 2020 02:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.27)  3 OCT 2020 03:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -36,39 +36,171 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@dima=\skip50
 \bigstrutjot=\dimen135
 )
+(/usr/local/texlive/2020/texmf-dist/tex/latex/qtree/qtree.sty
+Package: 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+Package: qtree 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pict2e/pict2e.sty
+Package: pict2e 2020/06/20 v0.3e Improved picture commands (HjG,RN,JT)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pict2e/pict2e.cfg
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: pdftex.def on input line 110.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 112.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
+File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+\pIIe@GRAPH=\toks17
+\@arclen=\dimen136
+\@arcrad=\dimen137
+\@tempdimd=\dimen138
+)
+\c@treecount=\count178
+\c@branchcount=\count179
+\parentbox=\box45
+\treebox=\box46
+\treeboxone=\box47
+\treeboxtwo=\box48
+\treeboxthree=\box49
+\treeboxfour=\box50
+\treeboxfive=\box51
+\treeboxsix=\box52
+\treeboxseven=\box53
+\treeboxeight=\box54
+\treeboxnine=\box55
+\treeboxten=\box56
+\treeboxeleven=\box57
+\treeboxtwelve=\box58
+\treeboxthirteen=\box59
+\treeboxfourteen=\box60
+\treeboxfifteen=\box61
+\treeboxsixteen=\box62
+\treeboxseventeen=\box63
+\treeboxeighteen=\box64
+\treeboxnineteen=\box65
+\treeboxtwenty=\box66
+\treeoffsetone=\skip51
+\treeoffsettwo=\skip52
+\treeoffsetthree=\skip53
+\treeoffsetfour=\skip54
+\treeoffsetfive=\skip55
+\treeoffsetsix=\skip56
+\treeoffsetseven=\skip57
+\treeoffseteight=\skip58
+\treeoffsetnine=\skip59
+\treeoffsetten=\skip60
+\treeoffseteleven=\skip61
+\treeoffsettwelve=\skip62
+\treeoffsetthirteen=\skip63
+\treeoffsetfourteen=\skip64
+\treeoffsetfifteen=\skip65
+\treeoffsetsixteen=\skip66
+\treeoffsetseventeen=\skip67
+\treeoffseteighteen=\skip68
+\treeoffsetnineteen=\skip69
+\treeoffsettwenty=\skip70
+\treeshiftone=\skip71
+\treeshifttwo=\skip72
+\treeshiftthree=\skip73
+\treeshiftfour=\skip74
+\treeshiftfive=\skip75
+\treeshiftsix=\skip76
+\treeshiftseven=\skip77
+\treeshifteight=\skip78
+\treeshiftnine=\skip79
+\treeshiftten=\skip80
+\treeshifteleven=\skip81
+\treeshifttwelve=\skip82
+\treeshiftthirteen=\skip83
+\treeshiftfourteen=\skip84
+\treeshiftfifteen=\skip85
+\treeshiftsixteen=\skip86
+\treeshiftseventeen=\skip87
+\treeshifteighteen=\skip88
+\treeshiftnineteen=\skip89
+\treeshifttwenty=\skip90
+\treewidthone=\skip91
+\treewidthtwo=\skip92
+\treewidththree=\skip93
+\treewidthfour=\skip94
+\treewidthfive=\skip95
+\treewidthsix=\skip96
+\treewidthseven=\skip97
+\treewidtheight=\skip98
+\treewidthnine=\skip99
+\treewidthten=\skip100
+\treewidtheleven=\skip101
+\treewidthtwelve=\skip102
+\treewidththirteen=\skip103
+\treewidthfourteen=\skip104
+\treewidthfifteen=\skip105
+\treewidthsixteen=\skip106
+\treewidthseventeen=\skip107
+\treewidtheighteen=\skip108
+\treewidthnineteen=\skip109
+\treewidthtwenty=\skip110
+\daughteroffsetone=\skip111
+\daughteroffsettwo=\skip112
+\daughteroffsetthree=\skip113
+\daughteroffsetfour=\skip114
+\branchwidthone=\skip115
+\branchwidthtwo=\skip116
+\branchwidththree=\skip117
+\branchwidthfour=\skip118
+\parentoffset=\skip119
+\treeoffset=\skip120
+\daughteroffset=\skip121
+\branchwidth=\skip122
+\parentwidth=\skip123
+\treewidth=\skip124
+\qta=\toks18
+\qtb=\toks19
+\nbranches=\count180
+\qroofx=\count181
+\qroofy=\count182
+\@qrscratchbox=\box67
+)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen136
-\lightrulewidth=\dimen137
-\cmidrulewidth=\dimen138
-\belowrulesep=\dimen139
-\belowbottomsep=\dimen140
-\aboverulesep=\dimen141
-\abovetopsep=\dimen142
-\cmidrulesep=\dimen143
-\cmidrulekern=\dimen144
-\defaultaddspace=\dimen145
-\@cmidla=\count178
-\@cmidlb=\count179
-\@aboverulesep=\dimen146
-\@belowrulesep=\dimen147
-\@thisruleclass=\count180
-\@lastruleclass=\count181
-\@thisrulewidth=\dimen148
+\heavyrulewidth=\dimen139
+\lightrulewidth=\dimen140
+\cmidrulewidth=\dimen141
+\belowrulesep=\dimen142
+\belowbottomsep=\dimen143
+\aboverulesep=\dimen144
+\abovetopsep=\dimen145
+\cmidrulesep=\dimen146
+\cmidrulekern=\dimen147
+\defaultaddspace=\dimen148
+\@cmidla=\count183
+\@cmidlb=\count184
+\@aboverulesep=\dimen149
+\@belowrulesep=\dimen150
+\@thisruleclass=\count185
+\@lastruleclass=\count186
+\@thisrulewidth=\dimen151
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/07/13 3.47 The Babel package
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/07/13 3.47 Babel common definitions
-\babel@savecnt=\count182
-\U@D=\dimen149
+\babel@savecnt=\count187
+\U@D=\dimen152
 \l@babelnohyphens=\language86
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count183
+\bbl@dirlevel=\count188
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
@@ -82,26 +214,26 @@ Package babel Info: \l@newzealand = using hyphenrules for ukenglish
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
+\KV@toks@=\toks20
 )
-\lst@mode=\count184
-\lst@gtempboxa=\box45
-\lst@token=\toks18
-\lst@length=\count185
-\lst@currlwidth=\dimen150
-\lst@column=\count186
-\lst@pos=\count187
-\lst@lostspace=\dimen151
-\lst@width=\dimen152
-\lst@newlines=\count188
-\lst@lineno=\count189
-\lst@maxwidth=\dimen153
+\lst@mode=\count189
+\lst@gtempboxa=\box68
+\lst@token=\toks21
+\lst@length=\count190
+\lst@currlwidth=\dimen153
+\lst@column=\count191
+\lst@pos=\count192
+\lst@lostspace=\dimen154
+\lst@width=\dimen155
+\lst@newlines=\count193
+\lst@lineno=\count194
+\lst@maxwidth=\dimen156
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count190
-\lst@skipnumbers=\count191
-\lst@framebox=\box46
+\c@lstnumber=\count195
+\lst@skipnumbers=\count196
+\lst@framebox=\box69
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -117,45 +249,39 @@ Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen154
-\Gin@req@width=\dimen155
+)
+\Gin@req@height=\dimen157
+\Gin@req@width=\dimen158
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count192
-\rotFPtop=\skip51
-\rotFPbot=\skip52
-\rot@float@box=\box47
-\rot@mess@toks=\toks19
+\c@r@tfl@t=\count197
+\rotFPtop=\skip125
+\rotFPbot=\skip126
+\rot@float@box=\box70
+\rot@mess@toks=\toks22
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/mdwtools/syntax.sty
 Package: syntax 1996/05/17 1.07 Syntax typesetting (MDW)
-\grammarparsep=\skip53
-\grammarindent=\dimen156
-\sdstartspace=\skip54
-\sdendspace=\skip55
-\sdmidskip=\skip56
-\sdtokskip=\skip57
-\sdfinalskip=\skip58
-\sdrulewidth=\dimen157
-\sdcirclediam=\dimen158
-\sdindent=\dimen159
+\grammarparsep=\skip127
+\grammarindent=\dimen159
+\sdstartspace=\skip128
+\sdendspace=\skip129
+\sdmidskip=\skip130
+\sdtokskip=\skip131
+\sdfinalskip=\skip132
+\sdrulewidth=\dimen160
+\sdcirclediam=\dimen161
+\sdindent=\dimen162
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip59
+\@mathmargin=\skip133
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -163,51 +289,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
-\ex@=\dimen160
+\@emptytoks=\toks23
+\ex@=\dimen163
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen161
+\pmbraise@=\dimen164
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count193
+\inf@bad=\count198
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count194
-\leftroot@=\count195
+\uproot@=\count199
+\leftroot@=\count266
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count196
-\DOTSCASE@=\count197
+\classnum@=\count267
+\DOTSCASE@=\count268
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box48
-\strutbox@=\box49
-\big@size=\dimen162
+\Mathstrutbox@=\box71
+\strutbox@=\box72
+\big@size=\dimen165
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count198
-\c@MaxMatrixCols=\count199
+\macc@depth=\count269
+\c@MaxMatrixCols=\count270
 \dotsspace@=\muskip16
-\c@parentequation=\count266
-\dspbrk@lvl=\count267
-\tag@help=\toks21
-\row@=\count268
-\column@=\count269
-\maxfields@=\count270
-\andhelp@=\toks22
-\eqnshift@=\dimen163
-\alignsep@=\dimen164
-\tagshift@=\dimen165
-\tagwidth@=\dimen166
-\totwidth@=\dimen167
-\lineht@=\dimen168
-\@envbody=\toks23
-\multlinegap=\skip60
-\multlinetaggap=\skip61
-\mathdisplay@stack=\toks24
+\c@parentequation=\count271
+\dspbrk@lvl=\count272
+\tag@help=\toks24
+\row@=\count273
+\column@=\count274
+\maxfields@=\count275
+\andhelp@=\toks25
+\eqnshift@=\dimen166
+\alignsep@=\dimen167
+\tagshift@=\dimen168
+\tagwidth@=\dimen169
+\totwidth@=\dimen170
+\lineht@=\dimen171
+\@envbody=\toks26
+\multlinegap=\skip134
+\multlinetaggap=\skip135
+\mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
@@ -224,41 +350,40 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count271
-\l__pdf_internal_box=\box50
+\l__kernel_color_stack_int=\count276
+\l__pdf_internal_box=\box73
 )
 (./syntaxandsemantics.aux)
 \openout1 = `syntaxandsemantics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-\c@lstlisting=\count272
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen169
-\scratchbox=\box51
-\nofMPsegments=\count274
-\nofMParguments=\count275
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen170
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count277
+\scratchdimen=\dimen172
+\scratchbox=\box74
+\nofMPsegments=\count278
+\nofMParguments=\count279
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen173
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
+\everyMPtoPDFconversion=\toks29
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -268,13 +393,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+\c@lstlisting=\count283
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -303,47 +429,47 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
  [5] [6
 
 ] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
@@ -355,20 +481,20 @@ Chapter 1.
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 9
-6.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+05.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 105.
  [4] [5]
-Overfull \hbox (44.47687pt too wide) in paragraph at lines 214--215
+Overfull \hbox (44.47687pt too wide) in paragraph at lines 223--224
 [][]\OT1/cmr/m/n/10.95 , [], ([] \OMS/cmtt/m/n/10.95 j [] j [] j []
  []
 
 
-Overfull \hbox (72.24577pt too wide) in paragraph at lines 222--223
+Overfull \hbox (72.24577pt too wide) in paragraph at lines 231--232
 []\OT1/cmr/m/n/10.95 [[]], ([] \OMS/cmtt/m/n/10.95 j []\OT1/cmr/m/n/10.95 ) [, 
 [] []] 
  []
@@ -378,17 +504,17 @@ Overfull \hbox (72.24577pt too wide) in paragraph at lines 222--223
 ]
 Chapter 2.
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 
  []
 
 
-Overfull \hbox (7.38823pt too wide) in paragraph at lines 277--278
+Overfull \hbox (7.38823pt too wide) in paragraph at lines 286--287
 []\OT1/cmr/m/n/10.95 Fluxion has five main types. \OT1/cmtt/m/n/10.95 boolean\O
 T1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 number\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n
 /10.95 set\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 matrix \OT1/cmr/m/n/10.95 an
@@ -396,25 +522,25 @@ d \OT1/cmtt/m/n/10.95 sequence\OT1/cmr/m/n/10.95 .
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 352--353
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
 
  []
 
 [12] [13]
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 4
-29.
+38.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 429.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 438.
 
-Overfull \hbox (1.35376pt too wide) in paragraph at lines 429--430
+Overfull \hbox (1.35376pt too wide) in paragraph at lines 438--439
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -423,137 +549,137 @@ Chapter 3.
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--446
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 449.
+               Default added (so using `tbp') on input line 458.
 
 
-Overfull \hbox (0.49583pt too wide) in paragraph at lines 465--466
+Overfull \hbox (0.49583pt too wide) in paragraph at lines 474--475
 []\OT1/cmr/m/n/10.95 As can be seen in Ta-ble 3.1[], all Flux-ion op-er-a-tors 
 ei-ther take one operand,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--466
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 478.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 487.
 
-Overfull \hbox (40.77417pt too wide) in paragraph at lines 485--486
+Overfull \hbox (40.77417pt too wide) in paragraph at lines 494--495
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 534--535
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--537
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 540--541
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 578--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--580
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--588
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 
  []
 
 [20]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 595.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 604.
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--622
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
+Underfull \hbox (badness 10000) in paragraph at lines 634--635
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 631--632
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 648--649
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
 
  []
 
@@ -562,57 +688,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 648--649
 ]
 Chapter 4.
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 686--687
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 712--713
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--715
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 732--733
+Underfull \hbox (badness 10000) in paragraph at lines 741--742
 
  []
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/bx/n' undefined
 (Font)              using `OMS/cmtt/m/n' instead
-(Font)              for symbol `textbackslash' on input line 734.
+(Font)              for symbol `textbackslash' on input line 743.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 736--737
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
+Underfull \hbox (badness 10000) in paragraph at lines 745--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 748--749
+Underfull \hbox (badness 10000) in paragraph at lines 747--748
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 757--758
 
  []
 
 [27]
 
-LaTeX Warning: Reference `utifunctions' on page 28 undefined on input line 773.
+LaTeX Warning: Reference `utifunctions' on page 28 undefined on input line 782.
 
 
 
-Overfull \hbox (77.65567pt too wide) in paragraph at lines 777--811
+Overfull \hbox (77.65567pt too wide) in paragraph at lines 786--820
 [][] 
  []
 
@@ -621,7 +747,7 @@ Overfull \hbox (77.65567pt too wide) in paragraph at lines 777--811
 ]
 Chapter 5.
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 852--853
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 
  []
 
@@ -630,22 +756,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [33]
 [34]
-Overfull \hbox (101.09164pt too wide) detected at line 952
+Overfull \hbox (101.09164pt too wide) detected at line 961
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 967--968
+Underfull \hbox (badness 10000) in paragraph at lines 976--977
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+Underfull \hbox (badness 10000) in paragraph at lines 978--979
 
  []
 
 [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1072
 
  []
 
@@ -654,12 +780,12 @@ Chapter 6.
 [39
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 
  []
 
@@ -673,10 +799,10 @@ Chapter 7.
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1220.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1229.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1222--1223
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1232
 
  []
 
@@ -685,7 +811,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1222--1223
 ] [47] [48]
 Appendix A.
 
-Overfull \hbox (49.32372pt too wide) detected at line 1258
+Overfull \hbox (49.32372pt too wide) detected at line 1267
 []
  []
 
@@ -696,12 +822,12 @@ Overfull \hbox (49.32372pt too wide) detected at line 1258
 ]
 Appendix B.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1264--1265
+Underfull \hbox (badness 10000) in paragraph at lines 1273--1274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1266--1267
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
 
  []
 
@@ -728,10 +854,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5149 strings out of 480906
- 68041 string characters out of 5908268
- 332324 words of memory out of 5000000
- 20674 multiletter control sequences out of 15000+600000
+ 5494 strings out of 480906
+ 72555 string characters out of 5908268
+ 342178 words of memory out of 5000000
+ 21006 multiletter control sequences out of 15000+600000
  547638 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,18n,37p,818b,1611s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -756,7 +882,7 @@ ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on syntaxandsemantics.pdf (63 pages, 331147 bytes).
+Output written on syntaxandsemantics.pdf (63 pages, 331923 bytes).
 PDF statistics:
  290 PDF objects out of 1000 (max. 8388607)
  202 compressed objects within 3 object streams
